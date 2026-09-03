@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
-let projectLibrary = {};
+
 
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
@@ -63,15 +63,18 @@ let projects = [];
 
 let hoveredObject = null;
 
+let projectLibrary = {};
+let currentProject = null;
+
 async function loadProjects() {
     const response = await fetch("projects.json");
     projectLibrary = await response.json();
 
-    console.log("Project library loaded:", projectLibrary);
+    console.log("projectLibrary loaded:", projectLibrary);
 
-}
+};
 
-loadProjects();
+loadProjects(); 
 
 window.addEventListener("wheel", handleWheel);
 
@@ -152,6 +155,7 @@ function enterBeatTwo() {
         projectA.scale.set(2, 2, 2);
         scene.add(projectA);
         projects.push(projectA);
+        projectA.userData.projectId = "remazu";
     })
 
     loader2.load("assets/models/TriadicMerge_forThreeJSPortfolio_centered_optimized.glb", (gltf) =>{
@@ -160,6 +164,7 @@ function enterBeatTwo() {
         projectB.scale.set(6, 6, 6);
         scene.add(projectB);
         projects.push(projectB);
+        projectB.userData.projectId = "triadic";
     })
 
     loader3.load("assets/models/Sibuxiang_forThreeJSPortfolio.glb", (gltf) =>{
@@ -169,6 +174,7 @@ function enterBeatTwo() {
         projectC.scale.set(.1, .1, .1);
         scene.add(projectC);
         projects.push(projectC);
+        projectC.userData.projectId = "sibuxiang";
     })
 
      loader4.load("assets/models/changE_dildo_ThreeJS.glb", (gltf) =>{
@@ -177,6 +183,7 @@ function enterBeatTwo() {
         // projectD.scale.set(.1, .1, .1);
         scene.add(projectD);
         projects.push(projectD);
+        projectD.userData.projectId = "dong";
     })
 
     smallProjectA = new THREE.Mesh(geometry5, material2.clone());
@@ -188,11 +195,6 @@ function enterBeatTwo() {
         smallProjectB,
         smallProjectC
     ];
-
-  
-    // projectB.position.set(2, 0, -3);
-    // projectC.position.set(3, -2, 1);
-    // projectD.position.set(0, 1, 4);
 
     smallProjectA.position.set(3, 5, -1);
     smallProjectB.position.set(-4, 2, 0);
@@ -391,6 +393,21 @@ function enterBeatTwo() {
         document.body.style.cursor = "default";
 
         hasEnteredProject = true;  
+
+       const projectId = object.userData.projectId;
+
+        currentProject = projectLibrary[projectId];
+
+        console.log("projectId:", projectId);
+        console.log("projectLibrary at enterProject:", projectLibrary);
+        console.log("available keys:", Object.keys(projectLibrary));
+
+        document.getElementById("project-title").textContent = currentProject.title;
+        document.getElementById("project-description").textContent = currentProject.description.join(" ");
+        // document.getElementById("project-tools").textContent = currentProject.tools.join(", ");
+        document.getElementById("project-year").textContent = currentProject.year;
+        document.getElementById("role").textContent = currentProject.role.join(", ");
+        document.getElementById("collaboration").textContent = currentProject.collaboration.join(", ");
     }
 
 

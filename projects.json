@@ -42,7 +42,7 @@
   },
 
   "triadic-patterning": {
-    "id": "triadic-patterning",
+    "id": "triadic",
     "title": "Triadic Patterning",
     "year": "2023-2024",
     "type": "Multimedia installation",
@@ -65,15 +65,16 @@
   "dong": {
     "id": "dong",
     "title": "DONG",
-    "year": "",
-    "type": "",
-    "role": [],
-    "tools": [],
+    "year": "2021",
+    "type": "Multimedia installation",
+    "collaboration": ["Written by Banyi Huang and Maya Yu Zhang", "Director: Maya Yu Zhang", "Sound design: Lemon Guo, Mengtai Zhang, and FURTIVE", "Visual effects: Eva Wo"],
+    "role": ["Artist", "Art direction", "performer", "concept and research", "animation", "fabrication"],
+    "tools": ["Autodesk Maya"],
     "summary": "",
-    "description": [],
-    "media": [],
+    "description": ["Mixing fantasy, pornography, and horror, DONG 洞 takes place in a lunar cave, where a post-gender being embarks on an auto-erotic journey of an impossible return to the maternal. Upon encountering a ritual object in the form of a rabbit dildo, the mystical being taps into their libido to recall their past life as BuddhaThe film illuminates a joyous and disastrous path marked by diasporic longing."],
+    "media": ["this shit is giving me a headache. i have a lot of sculptures in this installation and i don't know how to classify /organize it around the video."],
     "components": [],
-    "exhibitions": [],
+    "exhibitions": ["Ghost Stories are all love stories, 2021", "Blah blah i forget the venue"],
     "credits": []
   }
 }
