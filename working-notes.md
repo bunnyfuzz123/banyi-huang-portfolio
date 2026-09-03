@@ -21,3 +21,8 @@ Project interaction: overview --> approach/observe --> fork: return or engage de
 ## project pages
 
 project architecture: replace hardcoded remazu html with reusable project-detail templace + project data keyed by ID. same ID can connect Three.js object, URL state, and displayed project content
+
+# file size optimization
+
+landing page gif might be too big, 25. mb. the same way that i had to scale down the optimize glb files, reducing texture size from 4k to 2k, something can be done about this. 
+    Landing-page GIF: 25.7 MB, needs an optimization pass later—either substantially compress/resize it or replace it with a lighter looping format while preserving the automatic-motion experience.

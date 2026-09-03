@@ -1,6 +1,8 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
+let projectLibrary = {};
+
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 
@@ -60,6 +62,16 @@ let smallProjectC;
 let projects = [];
 
 let hoveredObject = null;
+
+async function loadProjects() {
+    const response = await fetch("projects.json");
+    projectLibrary = await response.json();
+
+    console.log("Project library loaded:", projectLibrary);
+
+}
+
+loadProjects();
 
 window.addEventListener("wheel", handleWheel);
 
@@ -140,7 +152,7 @@ function enterBeatTwo() {
         projectA.scale.set(2, 2, 2);
         scene.add(projectA);
         projects.push(projectA);
-    }).glb
+    })
 
     loader2.load("assets/models/TriadicMerge_forThreeJSPortfolio_centered_optimized.glb", (gltf) =>{
         projectB = gltf.scene;

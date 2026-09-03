@@ -1,0 +1,79 @@
+
+{
+  "remazu": {
+    "id": "remazu",
+    "title": "ReMazu: Iterations of Devotion",
+    "year": "2022–2023",
+    "type": "Multimedia installation",
+    "collaboration": "Sound by MIZU",
+    "role": ["artist", "character modeling", "animation", "fabrication and assembling", "concept and research"], 
+    "tools": ["Autodesk Maya", "Substance Painter", "Meshmixer"],
+    "summary": "",
+    "description": ["Multimedia project ReMazu: Iterations of Devotion  chronicles the cyclical journeys of a deity named Mazu, a sea goddess and shaman who was first mythologized in Fujian in Southern China, later spreading to Taiwan, and Southeast Asia. Through research, writing and prototypiing, I reimagine Mazu as a contemporary queer deity, informed by the complexity of coastal diasporic identities, informed by a spiritual connection to the powers of water and a hunger for transformation.",  
+"Building and animating a digital avatar in digital-ambient environments, the process of virtual production became a body-centering experience. Reflecting on this process, the film uses iterative calling to frame Mazu as an emotional reprogramming loop. Driven by the intense desire to be seen/heard/felt/held, the act of inviting her triggers the process of remothering, to create the safety needed to shield from the vioelnt forces of colonialism and Confucianist hetero-patriarchy."],
+    "media": ["assets/images/230628EFrossard_SMellon_Hmrtalism_0659.jpg", 
+                "assets/images/ReMazu_SignalTower_1.jpg", 
+                "assets/imagesReMazu_ClitForest_3.jpg",
+                "assets/images/ReMazu_SignalTower_5.jpg"  
+    ],
+    "components": ["video: ReMazu: Iterations of Devotion", 
+                    "sculptures: 有求必应 (Your Desires Will be Answered)",
+                    "Frolicking in ClitForest"
+                ],
+    "exhibitions": [],
+    "credits": ["Supported by the BRIClab Residency Program, 2022-2023", "Exhibited at Homorientalism (2023) at Smack Mellon, curated by Noor Bhangu"]
+  },
+
+  "sibuxiang": {
+    "id": "sibuxiang",
+    "title": "Sibuxiang: The Four Not-Likes",
+    "year": "2026",
+    "type": "Multimedia performance",
+    "collaboration": "Sound by Blushfire",
+    "role": ["artist", "character modeling", "animation", "performer", "concept and research"],
+    "tools": ["Blender", "Unity"],
+    "summary": "The Four Not-Likes (四不象) is an interactive performance centered around a hybrid quadruped creature whose movement is controlled through a custom physical interface.",
+    "description": [ "The Four Not-Likes (四不象) takes its name from the Chinese mythological creature Sibuxiang, whose body appears to contain features of multiple animals while belonging fully to none. The project centers around a digitally modeled and animated quadruped creature inhabiting a virtual environment.",
+  "Built through a pipeline spanning 3D modeling, character animation, game-engine development and physical hardware, the work connects the creature's movement in Unity to a custom arcade-style controller. Through this relationship between bodily input, virtual movement and the hybrid creature, the project explores different ways of inhabiting and navigating a digital body."],
+    "media": [],
+    "components": ["performance"],
+    "exhibitions": ["Water Power Life Gallery"],
+    "credits": ["Developed at Design Media Art, UCLA"]
+  },
+
+  "triadic-patterning": {
+    "id": "triadic-patterning",
+    "title": "Triadic Patterning",
+    "year": "2023-2024",
+    "type": "Multimedia installation",
+    "collaboration": "Sound design by Taüs Jafar",
+    "role": ["Artist", "animation production", "installation design", "concept and research"],
+    "tools": ["Blender", "Unreal Engine", "Substance Painter"],
+    "summary": ["A Sequel to ReMazu: Iterations of Devotion"],
+    "description": ["Triadic Patterning is a worldbuilding project that evolved across a three-channel video, interactive website, and 3D printed sculpture. It explores the triadic relationship between Qianliyan (Thousand-Mile Eye), Shunfeng’er (Wind-Following Ear), and Mazu. Qianliyan and Shunfeng’er are guardian deities embodying the act of seeing and listening, appearing in myth as anthropomorphic tools. In my reframing, Qianliyan and Shunfeng’er cause havoc due to their separation and unexamined pain; sensing this chaos, Mazu binds them together in a contract of Daoist magic, completing a triadic patterning of embodied integration."],
+    "media": ["assets/images/New Inc DEMO 2024_Art & Code_06,24_0153_sm.jpg", 
+                "assets/images/10122.png",  
+                "assets/images/10732.png"],
+    "components": ["Three-Channel Video: Triadic Patterning", 
+                    "3D Printed Sculpture",
+                    "Interactive Website: Triadic Patterning"
+                ],
+    "exhibitions": ["DEMO2024: Random Access Memory, NEW INC, 2024"],
+    "credits": ["Produced and developed at NEW INC, 2024", "Special thanks to mentor Lauren Goshinsky", "Sound design by Taüs Jafar"]
+  },
+
+  "dong": {
+    "id": "dong",
+    "title": "DONG",
+    "year": "",
+    "type": "",
+    "role": [],
+    "tools": [],
+    "summary": "",
+    "description": [],
+    "media": [],
+    "components": [],
+    "exhibitions": [],
+    "credits": []
+  }
+}
