@@ -140,9 +140,9 @@ function enterBeatTwo() {
         projectA.scale.set(2, 2, 2);
         scene.add(projectA);
         projects.push(projectA);
-    })
+    }).glb
 
-    loader2.load("assets/models/TriadicMerge_forThreeJSPortfolio_centered.glb", (gltf) =>{
+    loader2.load("assets/models/TriadicMerge_forThreeJSPortfolio_centered_optimized.glb", (gltf) =>{
         projectB = gltf.scene;
         projectB.position.set(8, 1, -2);
         projectB.scale.set(6, 6, 6);
@@ -374,7 +374,7 @@ function enterBeatTwo() {
 
         console.log("project entered into");
         console.log("entering project", object);
-        audio.play();
+        // audio.play();
         overlay.classList.add("visible");
         document.body.style.cursor = "default";
 

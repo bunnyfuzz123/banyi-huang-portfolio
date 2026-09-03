@@ -83,14 +83,6 @@ body {
     min-width: 0;
 }
 
-/* .line-break {
-    border: none;
-    border-width: 1px;
-    background-color:  rgb(11, 227, 0);
-    height: 1px;
-    width: 100%;
-} */
-
 #role {
     border-top: solid;
     border-width: 1px;
