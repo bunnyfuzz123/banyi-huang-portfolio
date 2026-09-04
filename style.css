@@ -19,13 +19,6 @@ body {
     height: 100vh;
 }
 
-/* #rectangle {
-    width: 800px;
-    height: 560px;
-    border: 1px solid black;
-    transform: scale(1);
-} */
-
 #beat-two {
     position: relative;
     width: 100vw;
@@ -38,7 +31,7 @@ body {
 
 #project-overlay {
     position: absolute;
-    background: rgba(119, 146, 236, 0.4);
+    background: rgba(119, 146, 236, 0.5);
     border-style: solid;
     border-width: 1px;
     border-color: black;
@@ -118,4 +111,8 @@ body {
 .project-description,
 .project-media {
     min-width: 0;
+}
+
+#project-description p {
+    margin-bottom: 1em;
 }

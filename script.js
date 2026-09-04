@@ -164,7 +164,7 @@ function enterBeatTwo() {
         projectB.scale.set(6, 6, 6);
         scene.add(projectB);
         projects.push(projectB);
-        projectB.userData.projectId = "triadic";
+        projectB.userData.projectId = "triadic-patterning";
     })
 
     loader3.load("assets/models/Sibuxiang_forThreeJSPortfolio.glb", (gltf) =>{
@@ -331,7 +331,7 @@ function enterBeatTwo() {
             lookTarget.copy(baseLookTarget);
         }
 
-        camera.position.lerp(cameraTarget, 0.004);
+        camera.position.lerp(cameraTarget, 0.01);
 
         camera.lookAt(lookTarget);
         // camera.lookAt(0, 0, 0);
@@ -399,15 +399,22 @@ function enterBeatTwo() {
         currentProject = projectLibrary[projectId];
 
         console.log("projectId:", projectId);
-        console.log("projectLibrary at enterProject:", projectLibrary);
-        console.log("available keys:", Object.keys(projectLibrary));
 
         document.getElementById("project-title").textContent = currentProject.title;
-        document.getElementById("project-description").textContent = currentProject.description.join(" ");
         // document.getElementById("project-tools").textContent = currentProject.tools.join(", ");
         document.getElementById("project-year").textContent = currentProject.year;
         document.getElementById("role").textContent = currentProject.role.join(", ");
-        document.getElementById("collaboration").textContent = currentProject.collaboration.join(", ");
+        document.getElementById("collaboration").textContent = currentProject.collaboration;
+
+        const descriptionElement = document.getElementById("project-description");
+
+        descriptionElement.innerHTML = "";
+
+        currentProject.description.forEach(paragraph => {
+            const p = document.createElement("p");
+            p.textContent = paragraph;
+            descriptionElement.appendChild(p);
+        });
     }
 
 
