@@ -140,7 +140,7 @@ function enterBeatTwo() {
         projectA.scale.set(2, 2, 2);
         scene.add(projectA);
         projects.push(projectA);
-    }).glb
+    })
 
     loader2.load("assets/models/TriadicMerge_forThreeJSPortfolio_centered_optimized.glb", (gltf) =>{
         projectB = gltf.scene;
