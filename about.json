@@ -1,0 +1,15 @@
+{
+    "title": "About",
+    "bio": ["Banyi Huang is a bag of flesh. Stale off the boat. They are currently dehydrating and rehydrating in the California sun."],
+    "portrait": "",
+    "cv": "",
+    "contact": ["info@banyihuang.com"],
+    "links": {
+      
+        "instagram": {
+            "url": "https://www.instagram.com/cropp_topp/",
+            "name": "cropp_topp"
+        },
+        "vimeo": "https://vimeo.com/banyihuang"
+    }
+}

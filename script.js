@@ -26,7 +26,8 @@ let baseLookTarget = new THREE.Vector3();
 
 let insideProject = false;
 
-const overlay = document.getElementById("project-overlay");
+const projectOverlay = document.getElementById("project-overlay");
+const aboutOverlay = document.getElementById("about-overlay");
 
 const loader1 = new GLTFLoader();
 const loader2 = new GLTFLoader();
@@ -50,6 +51,7 @@ let scrollThreshold = 500;
 let beatTwoEntered = false;
 let beatThreeEntered = false 
 let hasEnteredProject = false;
+let hasEnteredAbout = false;
 
 let mouseX = 0;
 let mouseY = 0;
@@ -78,6 +80,7 @@ let hoveredObject = null;
 
 let projectLibrary = {};
 let currentProject = null;
+let aboutLibrary = {};
 
 async function loadProjects() {
     const response = await fetch("projects.json");
@@ -87,7 +90,15 @@ async function loadProjects() {
 
 };
 
+async function loadAbout() {
+    const response = await fetch("about.json");
+    aboutLibrary = await response.json();
+    console.log("aboutLibrary loaded");
+}
+
 loadProjects(); 
+
+loadAbout();
 
 window.addEventListener("wheel", handleWheel);
 
@@ -152,7 +163,7 @@ function enterBeatTwo() {
     const bokehPass = new BokehPass (scene, camera, {
         focus: 1,
         aperture: 0.0004,
-        maxblur: 0.004
+        maxblur: 0.002
     })
 
     const resolution = new THREE.Vector2(window.innerWidth, window.innerHeight);
@@ -192,6 +203,7 @@ function enterBeatTwo() {
     aboutMe.position.set(0, 0, 0);
     scene.add(aboutMe);
     projects.push(aboutMe);
+    aboutMe.userData.aboutId = "about";
 
 
     loader1.load("assets/models/mazu_for3jsWebsite_alternative.glb", (gltf) =>{
@@ -300,20 +312,23 @@ function enterBeatTwo() {
         const intersects = raycaster.intersectObjects(projects, true);
 
         if (intersects.length === 0) return;
-        
-        // const object = intersects[0].object;
 
         const hitObject = intersects[0].object;
-        const project = getProjectRoot(hitObject);
+        const object = getProjectRoot(hitObject);
 
+        
         if (selectedObject === null) {
-            approachProject(project);
-            } else if (selectedObject === project) {
-                enterProject(project);
+            approachProject(object);
+            } else if (selectedObject === object) {
+                 if (object === aboutMe) {
+                    enterAbout(object);
+                 } else {
+                enterProject(object);
+            } 
+            
             } else {
-                approachProject(project);
+                approachProject(object);
             }
-
     }
 
     function handleBeatTwoScroll() {
@@ -321,7 +336,9 @@ function enterBeatTwo() {
          insideProject = false;
 
 
-         overlay.classList.remove("visible");
+         projectOverlay.classList.remove("visible");
+         aboutOverlay.classList.remove("visible");
+
          currentOverviewIndex++;
 
          if (currentOverviewIndex >= overviewCameraTargets.length) {
@@ -368,9 +385,9 @@ function enterBeatTwo() {
             projectE.rotation.z += 0.0002;
         }
 
-        // if (projectG) {
-        //     projectG.rotation.x += 0.0001;
-        // }
+        if (projectG) {
+            projectG.rotation.x += 0.0001;
+        }
 
         raycaster.setFromCamera(mouse, camera);
         const intersects = raycaster.intersectObjects(projects, true);
@@ -403,7 +420,7 @@ function enterBeatTwo() {
             lookTarget.copy(baseLookTarget);
         }
 
-        camera.position.lerp(cameraTarget, 0.02);
+        camera.position.lerp(cameraTarget, 0.002);
 
         camera.lookAt(lookTarget);
         // camera.lookAt(0, 0, 0);
@@ -461,7 +478,7 @@ function enterBeatTwo() {
         console.log("project entered into");
         console.log("entering project", object);
         // audio.play();
-        overlay.classList.add("visible");
+        projectOverlay.classList.add("visible");
         document.body.style.cursor = "default";
 
         hasEnteredProject = true;  
@@ -505,6 +522,8 @@ function enterBeatTwo() {
         //     else {const p = document.createElement("p");
         //     p.textContent = paragraph;
         //     collaborationElement.appendChild(p);}
+
+
             
         // });
 
@@ -568,10 +587,7 @@ function enterBeatTwo() {
         projectF.visible = true;
         projectG.visible = true;
         console.log("xerox paper should not be displayed")
-        //  smallProjectB.visible = true;
-
-
-        //  smallProjectC.visible = true;
+      
     }
 
     function getProjectRoot(object) {
@@ -601,4 +617,40 @@ function enterBeatTwo() {
             0.2,
             newDetail
         );
+    }
+
+    function enterAbout(object) {
+        insideProject = true;
+
+        aboutOverlay.classList.add("visible");
+
+        document.body.style.cursor = "default";
+        console.log("entered about");
+        
+        const aboutId = aboutMe.userData.aboutId;
+        const aboutData = aboutLibrary;
+        console.log(aboutLibrary);
+
+        document.getElementById("about-title").textContent = aboutData.title;
+        document.getElementById("about-bio").textContent = aboutData.bio;
+        document.getElementById("about-contact").textContent = aboutData.contact;
+
+        const linksContainer = document.getElementById("about-links");
+        linksContainer.innerHTML = "";
+
+        const instagram = document.createElement("a");
+        instagram.textContent = aboutData.links.instagram.name;
+        instagram.href = aboutData.links.instagram.url;
+        instagram.target = "_blank";
+        const br = document.createElement("br");
+        const vimeo = document.createElement("a");
+        vimeo.textContent = "vimeo";
+        vimeo.href = aboutData.links.vimeo;
+        vimeo.target = "_blank";
+    
+        linksContainer.appendChild(instagram);
+        linksContainer.appendChild(br); 
+
+        linksContainer.appendChild(vimeo);      
+
     }

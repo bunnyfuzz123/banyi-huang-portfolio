@@ -194,7 +194,7 @@
     "title": "DONG",
     "year": "2021",
     "type": ["Multimedia installation","Single-channel video", "3d-printed sculptures"],
-    "collaboration": ["Director: Maya Yu Zhang", "Sound design: Lemon Guo, Mengtai Zhang, and FURTIVE", "Visual effects: Eva Wo"],
+    "collaboration": ["Director: Maya Yu Zhang", " Sound design: Lemon Guo, Mengtai Zhang, and FURTIVE", " Visual effects: Eva Wo"],
     "role": ["Artist", "Art direction", "performer", "concept and research", "animation", "fabrication"],
     "tools": ["Autodesk Maya", "Meshmixer"],
     "summary": "",
@@ -284,18 +284,30 @@
     "year": "2025-26",
     "type": ["Animation", "performance"],
     "collaboration": "",
-    "role": ["Artist", "animation", "design"],
+    "role": ["animation", "design"],
     "tools": ["Blender geometry nodes"],
     "summary": "",
-    "description": ["A geometry-nodes-driven paper flipping system, in which I mapped onto pages of visual poetry about limerence, as well as my immigration paperwork."],
+    "description": ["A paper flipping animation system built in Blender geometry nodes. Inspired by the  stack of petition material I had to bring to my visa appointment at the US Consulate in China. One thousand pages to prove my right to exist.", "The same animation system was deployed to convey the persistence of repetitive loops in limerence and projection."],
     "media": [
-          "assets/media/xerox/hero_01.jpg",
-          "assets/media/xerox/hero_02.jpg",
-          "assets/media/xerox/sustain_01.jpg"
+          {
+          "src":    "assets/media/xerox/hero_01.jpg",
+         "caption": "Animation still"
+          },
+
+          {
+          "src":    "assets/media/xerox/hero_02.jpg",
+         "caption": "Animation still"
+          },
+
+          {
+          "src":    "assets/media/xerox/sustain_01.jpg",
+         "caption": "Animation still"
+          }
+
     ],
     "components": [],
     "exhibitions": ["Shown as a part of a reading performance at PLOT, LA"],
-    "credits": [""]
+    "credits": ["Shown as a part of a book launch for What grows in the dark? What grows in dark times? at Plot, Los Angeles. May 23, 2026. "]
   },
 
   "grand-street": {
@@ -352,19 +364,33 @@
     "id": "lunar-calendar",
     "title": "Wing On Wo 2024 Lunar Calendar Design",
     "year": "2024",
-    "type": "Design",
-    "collaboration": "",
+    "type": ["Design"],
+    "collaboration": "Wing On Wo",
     "role": ["Artist", "designer"],
     "tools": ["Blender geometry nodes", "Polycam"],
     "summary": "",
     "description": ["Design for Wing On Wo's Fourth Edition of From Chinatown, With Love, a Lunar New Year Calendar that celebrates the Year of the Wood Dragon by featuring local businesses in Manhattan Chinatown."],
     "media": [
-          "assets/media/lunar-calendar/hero_01.jpg",
-          "assets/media/lunar-calendar/hero_02.jpg"
+
+          {
+          "src":  "assets/media/lunar-calendar/hero_01.jpg",
+         "caption": "Animation still"
+          },
+
+          {
+          "src":    "assets/media/lunar-calendar/hero_02.jpg",
+         "caption": "Animation still"
+          }
+          
+          
     ],
     "components": [],
     "exhibitions": [""],
-    "credits": [""]
+    "credits": [""],
+     "vimeo": {
+    "url": "https://vimeo.com/911774749",
+    "label": "Tour demo"
+  }
   },
 
   "amorous-polymers": {
