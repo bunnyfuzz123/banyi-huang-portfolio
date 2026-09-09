@@ -49,14 +49,9 @@ body {
     align-items: center; 
 }
 
-.title {
-    color: black;   
-    font-size: 2rem;
-}
-
 .project-header {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 2rem;
     font-size: 2rem;
     padding: 2rem;
@@ -64,19 +59,47 @@ body {
 
 }
 
-@media (max-width: 800px) {
+.project-body {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+@media (max-width: 1200px) {
   .project-header {
     grid-template-columns: 1fr;
+    margin-bottom: 2rem !important;
   }
-}
 
-.project-media {
-    grid-column: 2;
+  .project-media {
+    grid-column: 1 !important;
     width: 100%;
     min-width: 0;
+  }
+
+  .project-body {
+    grid-template-columns: 1fr;
+  }
+
+  .project-sidebar {
+    position: static !important;
+    top: auto;
+    margin-bottom: 4rem;
+  }
+  
+  .sidebar-elements {
+    height: 100% !important;
 }
 
-#role {
+}
+
+
+.project-media img {
+    margin-bottom: 2rem !important;
+}
+
+#role, #credits, #project-tools {
     border-top: solid;
     border-width: 1px;
     border-color:  rgb(0, 0, 0);
@@ -100,13 +123,7 @@ body {
     position: relative;
 }
 
-.video-wrapper iframe {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-}
+
 
 .project-description,
 .project-media {
@@ -115,4 +132,46 @@ body {
 
 #project-description p {
     margin-bottom: 1em;
+}
+
+#project-vimeo iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16/9;
+    height: auto;
+    border: 0;
+}
+
+#project-vimeo {
+    grid-column: 2;
+    width: 100%;
+    min-width: 0;
+}
+
+.media-caption {
+    font-size: 1.4rem;
+    margin-left: auto !important;
+    color: rgba(13, 8, 31, 0.8);
+    margin-bottom: 2rem;
+    text-align: right;
+}
+
+.project-sidebar {
+    position: sticky;
+    top: 2rem;
+    align-self: start;
+    font-size: 2rem;
+}
+
+.sidebar-elements {
+    /* height: 20rem; */
+    padding: 2rem;
+}
+
+.project-header {
+    margin-bottom: 10rem;
+}
+
+.sidebar-elements p {
+    margin-bottom: 6rem;
 }

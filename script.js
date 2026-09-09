@@ -1,7 +1,10 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-
-
+import { HDRLoader } from 'three/addons/loaders/HDRLoader.js';
+import { BokehPass } from 'three/addons/postprocessing/BokehPass.js';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
+import { UnrealBloomPass } from "three/addons/postprocessing/UnrealBloomPass.js";
 
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
@@ -29,10 +32,17 @@ const loader1 = new GLTFLoader();
 const loader2 = new GLTFLoader();
 const loader3 = new GLTFLoader();
 const loader4 = new GLTFLoader();
+const loader5 = new GLTFLoader();
+const loader6 = new GLTFLoader();
+const loader7 = new GLTFLoader();
 
-const ambientLight = new THREE.AmbientLight(0xffffff, 1);
-const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
+const directionalLight = new THREE.DirectionalLight(0xffffff, 1.5);
 directionalLight.position.set(5, 5, 5);
+
+//E622FC
+const chickenDirectionalLight = new THREE.DirectionalLight(0xFDFFEB, 1);
+chickenDirectionalLight.position.set(-4, 2, 0);
 
 let scrollAmount = 0;
 let scaleValue = 1; 
@@ -49,15 +59,18 @@ let selectedObject = null;
 let scene;
 let camera;
 let renderer;
+let composer;
 
 let projectA;
 let projectB;
 let projectC;
 let projectD;
 
-let smallProjectA;
-let smallProjectB;
-let smallProjectC;
+let projectE;
+let projectF;
+let projectG;
+
+let aboutMe;
 
 let projects = [];
 
@@ -110,46 +123,78 @@ function handleWheel(event) {
 function enterBeatTwo() {
 
     scene = new THREE.Scene();
-    const axesHelper = new THREE.AxesHelper(5);
     camera = new THREE.PerspectiveCamera(
-        75,
+        65,
         window.innerWidth / window.innerHeight,
         0.1,
-        1000
+        100
     );
 
     scene.add(ambientLight);
     scene.add(directionalLight);
+    scene.add(chickenDirectionalLight);
 
     renderer = new THREE.WebGLRenderer();
     renderer.setClearColor(0xffffff);
 
     renderer.setSize(window.innerWidth, window.innerHeight);
-
+   
     document
         .getElementById("beat-two")
         .appendChild(renderer.domElement);
 
-    const geometry1 = new THREE.BoxGeometry(1, 1, 1);
-    const geometry2 = new THREE.BoxGeometry(1, 1, 1);
-    const geometry3 = new THREE.BoxGeometry(1, 1, 1);
-    const geometry4 = new THREE.BoxGeometry(1, 1, 1);
-    const geometry5 = new THREE.SphereGeometry(1, 1, 1);
-    const geometry6 = new THREE.SphereGeometry(.5, .5, .5);
-    const geometry7 = new THREE.SphereGeometry(1, 1, 1);
 
+    composer = new EffectComposer(renderer);
 
-    const material1 = new THREE.MeshBasicMaterial({
-        color: 0x000000,
-        wireframe: true
+    const renderPass = new RenderPass(scene, camera);
+    composer.addPass(renderPass);
+
+    const bokehPass = new BokehPass (scene, camera, {
+        focus: 1,
+        aperture: 0.0004,
+        maxblur: 0.004
     })
+
+    const resolution = new THREE.Vector2(window.innerWidth, window.innerHeight);
+    const bloomPass = new UnrealBloomPass(resolution, 0.3, 0.1, 1);
+
+    composer.addPass(bloomPass);
+
+    composer.addPass(bokehPass);
+
+    //animating aboutMe icon
+    let detail = 0;
+    let direction = 1;
+
+    setInterval(() => {
+        detail += direction; 
+
+        if (detail === 5) {
+            direction = -1;
+        }
+
+        if (detail === 0) {
+            direction = 1;
+        }
+        setAboutMeDetail(detail);
+    }, 200);
 
     const material2 = new THREE.MeshBasicMaterial({
         color: 0x8A2BE2,
         wireframe: true
     })
+
+    aboutMe = new THREE.Mesh(
+        new THREE.OctahedronGeometry(0.2, detail), 
+        material2
+    );
     
-    loader1.load("assets/models/mazu_for3jsWebsite.glb", (gltf) =>{
+    aboutMe.position.set(0, 0, 0);
+    scene.add(aboutMe);
+    projects.push(aboutMe);
+
+
+    loader1.load("assets/models/mazu_for3jsWebsite_alternative.glb", (gltf) =>{
         projectA = gltf.scene;
         projectA.position.set(-3, -4, 1);
         projectA.scale.set(2, 2, 2);
@@ -186,29 +231,43 @@ function enterBeatTwo() {
         projectD.userData.projectId = "dong";
     })
 
-    smallProjectA = new THREE.Mesh(geometry5, material2.clone());
-    smallProjectB = new THREE.Mesh(geometry6, material2.clone());
-    smallProjectC = new THREE.Mesh(geometry7, material2.clone());
+    loader5.load("assets/models/xeroxStack_threeJSPortfolio.glb", (gltf) =>{
+        projectE = gltf.scene;
+        projectE.position.set(3, 0, -4);
+        // projectE.scale.set(2, 2, 2);
+        scene.add(projectE);
+        projects.push(projectE);
+        projectE.userData.projectId = "xerox";
+        // projectE.material.wireframe = true;
+        projectE.visible = false;
 
-    projects = [
-        smallProjectA,
-        smallProjectB,
-        smallProjectC
-    ];
+    })
 
-    smallProjectA.position.set(3, 5, -1);
-    smallProjectB.position.set(-4, 2, 0);
-    smallProjectC.position.set(-4, 0, 3);
+      loader6.load("assets/models/jojoduck_threeJS.glb", (gltf) =>{
+        projectF = gltf.scene;
+        projectF.position.set(-4, 2, 0);
+        // projectF.scale.set(2, 2, 2);
+        scene.add(projectF);
+        projects.push(projectF);
+        projectF.userData.projectId = "lunar-calendar";
+        // projectE.material.wireframe = true;
+        projectF.visible = false;
+       
 
-    smallProjectA.visible = false;
-    smallProjectB.visible = false;
-    smallProjectC.visible = false;
+    })
 
-    scene.add(smallProjectA);
-    scene.add(smallProjectB);
-    scene.add(smallProjectC);
+     loader7.load("assets/models/constellation_threeJS.glb", (gltf) =>{
+        projectG = gltf.scene;
+        projectG.position.set(-6, 6, -6);
+        projectG.scale.set(5, 5, 5);
+        scene.add(projectG);
+        projects.push(projectG);
+        projectG.userData.projectId = "constellation";
+        // projectE.material.wireframe = true;
+        projectG.visible = false;
 
-    // scene.add(axesHelper);
+    })
+  
 
     camera.position.copy(cameraTarget);
 
@@ -261,6 +320,7 @@ function enterBeatTwo() {
          selectedObject = null;
          insideProject = false;
 
+
          overlay.classList.remove("visible");
          currentOverviewIndex++;
 
@@ -282,6 +342,9 @@ function enterBeatTwo() {
 
      function animateBeatTwo() {
         requestAnimationFrame(animateBeatTwo);
+
+        composer.render();
+
         if (projectA) {
             // projectA.rotation.x += 0.0002;
             projectA.rotation.y += 0.0001;
@@ -299,6 +362,15 @@ function enterBeatTwo() {
         if (projectD) {
             projectD.rotation.y += 0.0005;
         }
+
+        if (projectE) {
+            projectE.rotation.y += 0.0002;
+            projectE.rotation.z += 0.0002;
+        }
+
+        // if (projectG) {
+        //     projectG.rotation.x += 0.0001;
+        // }
 
         raycaster.setFromCamera(mouse, camera);
         const intersects = raycaster.intersectObjects(projects, true);
@@ -318,7 +390,7 @@ function enterBeatTwo() {
         }
 
         if (selectedObject && !insideProject) {
-            const orbitStrength = 1;
+            const orbitStrength = 1.2;
 
             cameraTarget.set(
                 baseCameraTarget.x + mouse.x * orbitStrength,
@@ -331,12 +403,12 @@ function enterBeatTwo() {
             lookTarget.copy(baseLookTarget);
         }
 
-        camera.position.lerp(cameraTarget, 0.01);
+        camera.position.lerp(cameraTarget, 0.002);
 
         camera.lookAt(lookTarget);
         // camera.lookAt(0, 0, 0);
 
-        renderer.render(scene, camera);
+        // renderer.render(scene, camera);
     }
 
     function approachProject(project) {
@@ -397,14 +469,44 @@ function enterBeatTwo() {
        const projectId = object.userData.projectId;
 
         currentProject = projectLibrary[projectId];
+        
 
         console.log("projectId:", projectId);
+        console.log("currentProject:", currentProject);
+        console.log("media:", currentProject.media);
 
         document.getElementById("project-title").textContent = currentProject.title;
-        // document.getElementById("project-tools").textContent = currentProject.tools.join(", ");
+        document.getElementById("project-tools").textContent = currentProject.tools.join(", ");
         document.getElementById("project-year").textContent = currentProject.year;
         document.getElementById("role").textContent = currentProject.role.join(", ");
         document.getElementById("collaboration").textContent = currentProject.collaboration;
+        document.getElementById("project-type").textContent = currentProject.type;
+        // document.getElementById("credits").textContent = currentProject.credits;
+
+
+        const typeElement = document.getElementById("project-type");
+
+        typeElement.innerHTML = "";
+
+        currentProject.type.forEach(paragraph => {
+            const p = document.createElement("p");
+            p.textContent = paragraph;
+            typeElement.appendChild(p);
+        })
+
+        // const collaborationElement = document.getElementById("collaboration")
+        // collaborationElement.innerHTML = "";
+
+        // currentProject.collaboration.forEach(paragraph => {
+        //     if (currentProject.collaboration.length = 1) {
+        //         return;
+        //         console.log("only one line here")
+        //     }
+        //     else {const p = document.createElement("p");
+        //     p.textContent = paragraph;
+        //     collaborationElement.appendChild(p);}
+            
+        // });
 
         const descriptionElement = document.getElementById("project-description");
 
@@ -415,29 +517,88 @@ function enterBeatTwo() {
             p.textContent = paragraph;
             descriptionElement.appendChild(p);
         });
+
+        const creditElement = document.getElementById("credits");
+        creditElement.innerHTML = "";
+        currentProject.credits.forEach(paragraph => {
+            const p = document.createElement("p");
+            p.textContent = paragraph;
+            creditElement.appendChild(p);
+        });
+
+        const mediaContainer = document.getElementById("project-media");
+        mediaContainer.innerHTML = "";
+        currentProject.media.forEach (media => {
+            const figure = document.createElement("figure");
+            const img = document.createElement("img");
+            img.src = media.src
+            img.alt = currentProject.title;
+
+            figure.appendChild(img);
+
+            if (media.caption) {
+                const caption = document.createElement("figcaption");
+                caption.classList.add("media-caption");
+                caption.textContent = media.caption;
+                figure.appendChild(caption);
+                console.log(caption);
+            }
+            mediaContainer.appendChild(figure);
+        });
+
+        const vimeoContainer = document.getElementById("project-vimeo");
+        vimeoContainer.innerHTML = "";
+
+        if (currentProject.vimeo) {
+            const videoId = currentProject.vimeo.url.split("/").pop();
+            console.log(videoId);
+            const iframe = document.createElement("iframe");
+            iframe.src = `https://player.vimeo.com/video/${videoId}`;
+            iframe.allow = "autoplay; fullscreen; picture-in-picture";
+            iframe.allowFullscreen = true;
+
+            vimeoContainer.appendChild(iframe);
+        };
+
     }
 
 
     function enterBeatThree() {
-        smallProjectA.visible = true;
-         smallProjectB.visible = true;
-         smallProjectC.visible = true;
+        projectE.visible = true;
+        projectF.visible = true;
+        projectG.visible = true;
+        console.log("xerox paper should not be displayed")
+        //  smallProjectB.visible = true;
+
+
+        //  smallProjectC.visible = true;
     }
 
     function getProjectRoot(object) {
         let current = object;
+        // let currentProjectRoot;
 
         while (current.parent && current.parent !== scene) {
             current = current.parent;
         }
         return current;
-        console.log(current);
+   
+       
     }
 
+    
     function setProjectWireframe(project, enabled) {
         project.traverse((child) => {
           if (child.isMesh && child.material) {
             child.material.wireframe = enabled;
           }  
         })
+    }
+
+    function setAboutMeDetail(newDetail) {
+        aboutMe.geometry.dispose();
+        aboutMe.geometry = new THREE.OctahedronGeometry(
+            0.2,
+            newDetail
+        );
     }
