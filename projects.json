@@ -67,7 +67,7 @@
                     "Frolicking in ClitForest"
                 ],
     "exhibitions": ["Exhibited at Homorientalism (2023) at Smack Mellon, curated by Noor Bhangu"],
-    "credits": ["Supported by the BRIClab Residency Program, 2022-2023", "Group Exhibition: Homorientalism, Smack Mellon, New York. June 23 - August 6, 2023", "Fatal & Fallen: The Ultra Bad Woman as Techno-Mystic Weapon, The Taiwan Film and Audiovisual Institute, Taipei, Taiwan. April 2024", "Trans Hirstory in 99 Objects: A Variety Show Extravaganza, New Museum, New York. February 2024"],
+    "credits": ["Supported by the BRIClab Residency Program, 2022-2023", "Special thanks to Morehshin Allahyari for mentorship at BRIClab", "Group Exhibition: Homorientalism, Smack Mellon, New York. June 23 - August 6, 2023", "Fatal & Fallen: The Ultra Bad Woman as Techno-Mystic Weapon, The Taiwan Film and Audiovisual Institute, Taipei, Taiwan. April 2024", "Trans Hirstory in 99 Objects: A Variety Show Extravaganza, New Museum, New York. February 2024"],
     "vimeo": {
     "url": "https://vimeo.com/840159624",
     "label": "ReMazu: Iterations of Devotion — Full Film"
@@ -86,15 +86,30 @@
     "description": [ "The Four Not-Likes (四不象) takes its name from the Chinese mythological creature Sibuxiang, whose body appears to contain features of multiple animals while belonging fully to none. The project centers around a digitally modeled and animated quadruped creature inhabiting a virtual environment.",
   "Built through a pipeline spanning 3D modeling, character animation, game-engine development and physical hardware, the work connects the creature's movement in Unity to a custom arcade-style controller. Through this relationship between bodily input, virtual movement and the hybrid creature, the project explores different ways of inhabiting and navigating a digital body."],
     "media": [
-          "assets/media/sibuxiang/hero_01.jpeg", 
-          "assets/media/sibuxiang/hero_02.jpg",
-          "assets/media/sibuxiang/sustain_01.jpg",
-          "assets/media/sibuxiang/end_01.jpeg"
+          {
+          "src": "assets/media/sibuxiang/hero_01.jpeg",
+         "caption": "The Four Not-Likes, 2026. Performance still at Water & Power, Los Angeles. Photo credit: Jiapei Yao"
+          },
+
+          {
+          "src": "assets/media/sibuxiang/hero_02.jpg",
+         "caption": "The Four Not-Likes, 2026. Performance still at Water & Power, Los Angeles. Photo credit: Hyunseo Cho"
+          },
+
+          {
+          "src": "assets/media/sibuxiang/sustain_01.jpg",
+         "caption": "The Four Not-Likes, 2026. Performance still  at Water & Power, Los Angeles. Photo credit: Hyunseo Cho"
+          },
+
+          {
+          "src":  "assets/media/sibuxiang/end_01.jpeg",
+         "caption": "The Four Not-Likes, 2026. Performance still at Water & Power, Los Angeles. Photo credit: Hyunseo Cho"
+          }  
 
     ],
     "components": ["performance"],
-    "exhibitions": ["Wuwei performance programming at Water Power Life Gallery"],
-    "credits": ["Developed at Design Media Art, UCLA"],
+    "exhibitions": ["Wuwei, an evening of performances at Water & Power, Los Angeles. June 27, 2026"],
+    "credits": ["Developed at Design Media Art, UCLA", "Wuwei at Water Power Life Gallery, Los Angeles. June 27, 2026"],
      "vimeo": {
     "url": "https://vimeo.com/1169703688",
     "label": "Test"
@@ -105,30 +120,69 @@
     "id": "triadic-patterning",
     "title": "Triadic Patterning",
     "year": "2023-2024",
-    "type": ["Multimedia installation","Three-channel video", "3d-printed sculptures"],
+    "type": ["Multimedia installation","Three-channel video: 15:13 min", "3d-printed sculptures: 16 x 11 x 16 inches"],
     "collaboration": "Sound design by Taüs Jafar",
-    "role": ["Artist", "animation production", "installation design", "concept and research"],
-    "tools": ["Blender", "Unreal Engine", "Substance Painter"],
+    "role": ["Artist", "animation production", "character design", "concept and research"],
+    "tools": ["Blender", "Substance Painter", "Unreal Engine"],
     "summary": "A Sequel to ReMazu: Iterations of Devotion",
     "description": ["Triadic Patterning is a worldbuilding project that evolved across a three-channel video, interactive website, and 3D printed sculpture. It explores the triadic relationship between Qianliyan (Thousand-Mile Eye), Shunfeng’er (Wind-Following Ear), and Mazu. Qianliyan and Shunfeng’er are guardian deities embodying the act of seeing and listening, appearing in myth as anthropomorphic tools. In my reframing, Qianliyan and Shunfeng’er cause havoc due to their separation and unexamined pain; sensing this chaos, Mazu binds them together in a contract of Daoist magic, completing a triadic patterning of embodied integration."],
     "media": [
-              "assets/media/triadic-patterning/hero_01.png", 
-              "assets/media/triadic-patterning/hero_02.png",
-              "assets/media/triadic-patterning/installation_01.jpg",
-              "assets/media/triadic-patterning/sculpture_01_1.jpg",
-              "assets/media/triadic-patterning/sculpture_01_2.jpg",  
-              "assets/media/triadic-patterning/sustain_01.png",
-              "assets/media/triadic-patterning/sustain_02.png",
-              "assets/media/triadic-patterning/sustain_03.jpg",
-              "assets/media/triadic-patterning/end_01.png",
-              "assets/media/triadic-patterning/end_02.png"
+          {
+          "src": "assets/media/triadic-patterning/hero_01.png",
+         "caption": "Triadic Patterning, 2024-2025. Video still from three-channel video installation."
+          },
+
+           {
+          "src":  "assets/media/triadic-patterning/hero_02.png",
+         "caption": "Triadic Patterning, 2024-2025. Video still from three-channel video installation."
+          },
+
+          {
+          "src":   "assets/media/triadic-patterning/installation_01.jpg",
+         "caption": "Installation view of DEMO2024: Random Access Memory, 2024, curated by Eileen Isagon Skyers. WSA, New York. Photo: Dario Lasagni"
+          },
+
+          {
+          "src":  "assets/media/triadic-patterning/sculpture_01_1.jpg",
+         "caption": "3D printed resin sculpture, 16 x 11 x 16 inches"
+          },    
+             
+          {
+          "src":  "assets/media/triadic-patterning/sculpture_01_2.jpg",  
+         "caption": "3D printed resin sculpture,16 x 11 x 16 inches"
+          },  
+             
+          {
+          "src":    "assets/media/triadic-patterning/sustain_01.png",
+         "caption": "Triadic Patterning, 2024-2025. Video still from three-channel video installation."
+          },
+            
+           {
+          "src":  "assets/media/triadic-patterning/sustain_02.png",
+         "caption": "Triadic Patterning, 2024-2025. Video still from three-channel video installation."
+          },
+
+          {
+          "src": "assets/media/triadic-patterning/sustain_03.jpg",
+         "caption": "Triadic Patterning, 2024-2025. Video still from three-channel video installation."
+          },
+            
+          {
+          "src":  "assets/media/triadic-patterning/end_01.png",
+         "caption": "Triadic Patterning, 2024-2025. Video still from three-channel video installation."
+          },
+          
+          {
+          "src":  "assets/media/triadic-patterning/end_02.png",
+         "caption": "Triadic Patterning, 2024-2025. Video still from three-channel video installation."
+          }  
     ],
     "components": ["Three-Channel Video: Triadic Patterning", 
                     "3D Printed Sculpture",
                     "Interactive Website: Triadic Patterning"
                 ],
     "exhibitions": ["DEMO2024: Random Access Memory, NEW INC, 2024"],
-    "credits": ["Produced and developed at NEW INC, 2024", "Special thanks to mentor Lauren Goshinsky"],
+    "credits": ["Produced and developed at NEW INC, 2024. Special thanks to Lauren Goshinsky for mentoring this project", "DEMO 2024, Random Access Memory, Presented by NEW INC, curated by Eileen Isagon Skyers. June 5 - 20, 2024", "Wagner Mendoça Award Exhibition, New Media Caucus. August 1- September 1, 2024"],
     "vimeo": {
     "url": "https://vimeo.com/999377024",
     "label": "Triadic Patterning Single Channel"
@@ -146,24 +200,56 @@
     "summary": "",
     "description": ["DONG 洞 takes place in a lunar cave, where a post-gender being embarks on an auto-erotic journey of an impossible return to the maternal. Upon encountering a ritual object in the form of a rabbit dildo, the mystical being taps into their libido to recall their past life as Big-Headed Buddha."],
     "media": [
-          "assets/media/dong/hero_01.png", 
-          "assets/media/dong/hero_02.jpg",
-          "assets/media/dong/installation_01.jpg",
-          "assets/media/dong/sculpture_01.jpg",
-          "assets/media/dong/sculpture_02.jpg",
-          "assets/media/dong/sculpture_03.jpg",
-          "assets/media/dong/sculpture_04.jpg",
-          "assets/media/dong/sustain_01.jpg",
-          "assets/media/dong/sustain_02.png",
-          "assets/media/dong/end_01.jpg"
+
+          {
+          "src":  "assets/media/dong/hero_01.png",
+         "caption": "洞 DONG, 2021. Video still"
+          },
+           {
+          "src":    "assets/media/dong/hero_02.jpg",
+         "caption": "洞 DONG, 2021. Video still"
+          },
+           {
+          "src":    "assets/media/dong/installation_01.jpg",
+         "caption": "Installation view of Ghost Stories are All Love Stories at The Clemente Soto Vélez Cultural & Educational Center."
+          },
+           {
+          "src":   "assets/media/dong/sculpture_01.jpg",
+         "caption": "It’s Cold in the Lunar Palace But Warm in Your Embrace, 2021. PLA plastic, arduino, LCD screen. 21 x 7.5 x 7.5 inches"
+          },
+        
+           {
+          "src":   "assets/media/dong/sculpture_02.jpg",
+         "caption": "Apparitions, 2021. 3D printed PLA plastic, resin, lamp, acrylic paint, fake lashes, wooden box, time switch. 64 x 11.5 x 12 inches"
+          },
+
+           {
+          "src":    "assets/media/dong/sculpture_03.jpg",
+         "caption": "Summoning Wind and Calling Rain, 2021. 3D printed PLA plastic, resin, metal chain, ink, water pump, water, brush, acrylic paint, rocks, fake plants. 13 x 6.5 x 6.5 inches"
+          },
+         
+           {
+          "src":   "assets/media/dong/sculpture_04.jpg",
+         "caption": "Lunar Script, 2021. PLA plastic, arduino, LCD screen. 6 x 4 x 4.5 inches"        
+           },
+
+           {
+          "src":   "assets/media/dong/sustain_01.jpg",
+         "caption": "洞 DONG, 2021. Video still"
+          },
+         
+          {
+          "src":   "assets/media/dong/end_01.jpg",
+         "caption": "洞 DONG, 2021. Video still"
+          }
     ],
     "components": [],
     "exhibitions": ["Ghost Stories are all love stories, 2021, The Clemente Soto Vélez Cultural & Educational Center"],
-    "credits": ["Supported by the LMCC Artist Grant"],
+    "credits": ["Supported by the LMCC Artist Grant", "Exhibited at Ghost Stories are all love stories, 2021, The Clemente Soto Vélez Cultural & Educational Center.", "Queerness in 2024, Wonderville, New York. January 2024"],
     "vimeo": {
     "url": "https://vimeo.com/691063235",
-    "label": "Triadic Patterning Single Channel"
-}
+    "label": "DONG Single Channel"
+  }
   },
 
 
@@ -176,13 +262,16 @@
     "role": ["Artist", "animation", "design"],
     "tools": ["Blender", "Unreal Engine", "Polycam"],
     "summary": "",
-    "description": ["A collaborative experiment. Designed song cover on Spotify and real time Unreal Engine performance at the song release event."],
+    "description": ["A collaborative experiment with 3D scanned bodies and Blender geometry nodes. Designed the cover for First Language on Spotify. Experimented with Unreal Engine performance at the song release event at Creatrx's rooftop in Brooklyn, New York."],
     "media": [
-          "assets/media/constellation/hero_01.png"
+        {
+          "src":    "assets/media/constellation/hero_01.png",
+         "caption": "Animation still"
+          }
     ],
     "components": [],
     "exhibitions": [""],
-    "credits": [""],
+    "credits": ["listen to the song on Spotify: https://open.spotify.com/album/3qKhQgOUYv2zw9WdlkIHnP?si=-O-4rcPtS5q9LH_s9CAdng"],
     "vimeo": {
     "url": "https://vimeo.com/1092604279",
     "label": "Play-through"

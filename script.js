@@ -46,7 +46,7 @@ chickenDirectionalLight.position.set(-4, 2, 0);
 
 let scrollAmount = 0;
 let scaleValue = 1; 
-let scrollThreshold = 3000; 
+let scrollThreshold = 500; 
 let beatTwoEntered = false;
 let beatThreeEntered = false 
 let hasEnteredProject = false;
@@ -403,7 +403,7 @@ function enterBeatTwo() {
             lookTarget.copy(baseLookTarget);
         }
 
-        camera.position.lerp(cameraTarget, 0.002);
+        camera.position.lerp(cameraTarget, 0.02);
 
         camera.lookAt(lookTarget);
         // camera.lookAt(0, 0, 0);
