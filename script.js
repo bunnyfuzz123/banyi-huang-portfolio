@@ -420,7 +420,7 @@ function enterBeatTwo() {
             lookTarget.copy(baseLookTarget);
         }
 
-        camera.position.lerp(cameraTarget, 0.002);
+        camera.position.lerp(cameraTarget, 0.01);
 
         camera.lookAt(lookTarget);
         // camera.lookAt(0, 0, 0);
