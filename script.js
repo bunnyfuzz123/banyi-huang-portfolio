@@ -37,8 +37,8 @@ const loader5 = new GLTFLoader();
 const loader6 = new GLTFLoader();
 const loader7 = new GLTFLoader();
 
-const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
-const directionalLight = new THREE.DirectionalLight(0xffffff, 1.5);
+const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
 directionalLight.position.set(5, 5, 5);
 
 //E622FC
@@ -171,7 +171,7 @@ function enterBeatTwo() {
 
     composer.addPass(bloomPass);
 
-    composer.addPass(bokehPass);
+    // composer.addPass(bokehPass);
 
     //animating aboutMe icon
     let detail = 0;
@@ -227,7 +227,7 @@ function enterBeatTwo() {
     loader3.load("assets/models/Sibuxiang_forThreeJSPortfolio.glb", (gltf) =>{
         projectC = gltf.scene;
         projectC.position.set(8, -2, 1);
-        projectC.scale.set(2, 2, 2);
+        // projectC.scale.set(2, 2, 2);
         projectC.scale.set(.1, .1, .1);
         scene.add(projectC);
         projects.push(projectC);
