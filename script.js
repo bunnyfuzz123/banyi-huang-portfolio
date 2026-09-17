@@ -288,14 +288,22 @@ function enterBeatTwo() {
     cameraTarget.copy(overviewCameraTargets[currentOverviewIndex]);
 
 
-    window.addEventListener("click", function() {
-        if (beatTwoEntered) {
-            handleBeatTwoClick();
+    window.addEventListener("click", function(event) {
+        
+        if (!beatTwoEntered) return;
+
+        if (insideProject) {
+            if (!projectOverlay.contains(event.target) && !aboutOverlay.contains(event.target)) {
+                exitProject();
+            }
+            return;
         }
+
+        handleBeatTwoClick();
     });  
     
     window.addEventListener("wheel", function() {
-        if (beatTwoEntered) {
+        if (beatTwoEntered && !insideProject) {
 
             handleBeatTwoScroll();
         } 
@@ -336,8 +344,8 @@ function enterBeatTwo() {
          insideProject = false;
 
 
-         projectOverlay.classList.remove("visible");
-         aboutOverlay.classList.remove("visible");
+        //  projectOverlay.classList.remove("visible");
+        //  aboutOverlay.classList.remove("visible");
 
          currentOverviewIndex++;
 
@@ -407,7 +415,7 @@ function enterBeatTwo() {
         }
 
         if (selectedObject && !insideProject) {
-            const orbitStrength = 1.2;
+            const orbitStrength = 0.7;
 
             cameraTarget.set(
                 baseCameraTarget.x + mouse.x * orbitStrength,
@@ -581,7 +589,15 @@ function enterBeatTwo() {
 
     }
 
+    function exitProject() {
+        insideProject = false;
+        selectedObject = null;
 
+        projectOverlay.classList.remove("visible");
+        aboutOverlay.classList.remove("visible");
+
+        document.body.style.cursor = "default";
+    }
     function enterBeatThree() {
         projectE.visible = true;
         projectF.visible = true;
