@@ -28,14 +28,27 @@ let insideProject = false;
 
 const projectOverlay = document.getElementById("project-overlay");
 const aboutOverlay = document.getElementById("about-overlay");
+const loadingManager = new THREE.LoadingManager();
 
-const loader1 = new GLTFLoader();
-const loader2 = new GLTFLoader();
-const loader3 = new GLTFLoader();
-const loader4 = new GLTFLoader();
-const loader5 = new GLTFLoader();
-const loader6 = new GLTFLoader();
-const loader7 = new GLTFLoader();
+
+const loader1 = new GLTFLoader(loadingManager);
+const loader2 = new GLTFLoader(loadingManager);
+const loader3 = new GLTFLoader(loadingManager);
+const loader4 = new GLTFLoader(loadingManager);
+const loader5 = new GLTFLoader(loadingManager);
+const loader6 = new GLTFLoader(loadingManager);
+const loader7 = new GLTFLoader(loadingManager);
+
+
+let assetsLoaded = false;
+let scalingFinished = false;
+
+loadingManager.onLoad = function () {
+    console.log("beat two assets loaded");
+    assetsLoaded = true;
+    scaleValue = 1;
+    scaleBeatOne();
+}
 
 const ambientLight = new THREE.AmbientLight(0xffffff, 1);
 const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
@@ -100,7 +113,7 @@ loadProjects();
 
 loadAbout();
 
-window.addEventListener("wheel", handleWheel);
+// window.addEventListener("wheel", handleWheel);
 
 window.addEventListener("mousemove", function(event) {
     mouseX = (event.clientX / this.window.innerWidth - 0.5)*2;
@@ -111,23 +124,55 @@ window.addEventListener("mousemove", function(event) {
 })
 
 //Beat-one: scroll to get close 
-function handleWheel(event) {
-    scrollAmount += event.deltaY;
+// function handleWheel(event) {
+//     scrollAmount += event.deltaY;
 
-    scaleValue = 1 + scrollAmount * 0.003;
-    scaleValue = Math.max(0.8, Math.min(scaleValue, 8))+1;
+//     scaleValue = 1 + scrollAmount * 0.003;
+//     scaleValue = Math.max(0.8, Math.min(scaleValue, 8))+1;
 
-    document.getElementById("beat-one").style.transform = `scale(${scaleValue})`;
+//     document.getElementById("beat-one").style.transform = `scale(${scaleValue})`;
 
-    if (scrollAmount >= scrollThreshold && !beatTwoEntered) {
-        beatTwoEntered = true;
+//     if (scrollAmount >= scrollThreshold && !beatTwoEntered) {
+//         beatTwoEntered = true;
         
+//         document.getElementById("beat-one").style.display = "none";
+//         document.getElementById("beat-two").style.display = "block";
+        
+//         enterBeatTwo();
+//         };
+// };
+
+console.log("scheduling beat two");
+setTimeout(() => {
+        enterBeatTwo();
+        // scaleBeatOne();
+
+       
+}, 3000);
+
+function scaleBeatOne() {
+     if (scaleValue < 5) {
+            scaleValue += 0.04;
+            console.log("scaleValue is" + scaleValue);
+            document.getElementById("beat-one").style.transform = `scale(${scaleValue})`;
+            requestAnimationFrame(scaleBeatOne);
+
+        } else {
+            console.log("scaling finished");
+            scalingFinished = true;
+             tryRevealBeatTwo();
+        }
+};
+
+function tryRevealBeatTwo() {
+    if (assetsLoaded && scalingFinished && !beatTwoEntered) {
+        console.log("revealing beat two");
+
+        beatTwoEntered = true;
         document.getElementById("beat-one").style.display = "none";
         document.getElementById("beat-two").style.display = "block";
-        
-        enterBeatTwo();
-        };
-};
+    }
+}
 
 
 //Build 3D environment and start it running 
@@ -340,6 +385,7 @@ function enterBeatTwo() {
     }
 
     function handleBeatTwoScroll() {
+
          selectedObject = null;
          insideProject = false;
 
