@@ -140,38 +140,18 @@ window.addEventListener("mousemove", function(event) {
     mouse.y = -mouseY;
 })
 
-//Beat-one: scroll to get close 
-// function handleWheel(event) {
-//     scrollAmount += event.deltaY;
-
-//     scaleValue = 1 + scrollAmount * 0.003;
-//     scaleValue = Math.max(0.8, Math.min(scaleValue, 8))+1;
-
-//     document.getElementById("beat-one").style.transform = `scale(${scaleValue})`;
-
-//     if (scrollAmount >= scrollThreshold && !beatTwoEntered) {
-//         beatTwoEntered = true;
-        
-//         document.getElementById("beat-one").style.display = "none";
-//         document.getElementById("beat-two").style.display = "block";
-        
-//         enterBeatTwo();
-//         };
-// };
 
 console.log("scheduling beat two");
 setTimeout(() => {
         enterBeatTwo();
-        // scaleBeatOne();
+        // scaleBeatOne()
+}, 2000);
 
-        
-
-       
-}, 3000);
+// enterBeatTwo();
 
 function scaleBeatOne() {
      if (scaleValue < 5) {
-            scaleValue += 0.04;
+            scaleValue += 0.025;
             console.log("scaleValue is" + scaleValue);
             document.getElementById("beat-one").style.transform = `scale(${scaleValue})`;
             requestAnimationFrame(scaleBeatOne);
@@ -190,6 +170,9 @@ function tryRevealBeatTwo() {
         beatTwoEntered = true;
         document.getElementById("beat-one").style.display = "none";
         document.getElementById("beat-two").style.display = "block";
+
+        animateBeatTwo();
+
     }
 }
 
@@ -335,7 +318,7 @@ function enterBeatTwo() {
      loader7.load("assets/models/constellation_threeJS.glb", (gltf) =>{
         projectG = gltf.scene;
         projectG.position.set(-6, 6, -6);
-        projectG.scale.set(5, 5, 5);
+        projectG.scale.set(7, 7, 7);
         scene.add(projectG);
         projects.push(projectG);
         projectG.userData.projectId = "constellation";
@@ -373,7 +356,7 @@ function enterBeatTwo() {
         } 
     })
     
-    animateBeatTwo();
+    // animateBeatTwo();
 
 }
 
@@ -493,7 +476,7 @@ function enterBeatTwo() {
             lookTarget.copy(baseLookTarget);
         }
 
-        camera.position.lerp(cameraTarget, 0.01);
+        camera.position.lerp(cameraTarget, 0.025);
 
         camera.lookAt(lookTarget);
         // camera.lookAt(0, 0, 0);
