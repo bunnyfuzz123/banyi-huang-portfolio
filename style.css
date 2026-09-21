@@ -42,7 +42,7 @@ body {
     overflow-y: auto;
     overflow-x: hidden; 
     scrollbar-width: none;;
-    padding: 6rem;
+    padding: 2rem;
 }
 
 #project-overlay.visible,
@@ -71,7 +71,7 @@ body {
 
 #about-overlay {
     font-size: 2rem;
-    margin-top: 10rem;
+    margin-top: 2rem;
 }
 
 #about-bio {
