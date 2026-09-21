@@ -1,11 +1,16 @@
 {
     "title": "About",
-    "bio": ["Banyi Huang is a bag of flesh. Stale off the boat. They are currently dehydrating and rehydrating in the California sun."],
+    "bio": [
+    "Banyi Huang (they/them) is an artist working across multiple systems: digital bodies in virtual environments, sculptural devices, installation and performance.",
+    "They turn to the reenactment of mythology as a framework for connecting with ancestors and their physio-spiritual attributes–recognizing within that the self that generated a version of that lineage has already become an ancestor.", 
+    "Core to the artist’s practice, cycles of return bridges the technical and the bodily across time. The process of sculpting reconfigurable bodies, building node-based animation systems, and fabricating ritual objects is inherently iterative. They turn technical repetition into a sustained form of attention, and through time, cultivate a practice of devotion.",
+    "Queer deities demand just that.", 
+    "Currently, Banyi is investigating live performance as a system in which the body, translated through devotional incantations and gestures, acts as a direct animation input. They are currently a second-year graduate student at UCLA’s Design Media Art program."
+    ],
     "portrait": "",
     "cv": "",
     "contact": ["info@banyihuang.com"],
     "links": {
-      
         "instagram": {
             "url": "https://www.instagram.com/cropp_topp/",
             "name": "cropp_topp"

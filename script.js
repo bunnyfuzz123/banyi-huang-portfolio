@@ -5,6 +5,23 @@ import { BokehPass } from 'three/addons/postprocessing/BokehPass.js';
 import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
 import { UnrealBloomPass } from "three/addons/postprocessing/UnrealBloomPass.js";
+import { displayProject } from "./project-display.js";
+
+const menuToggle = document.querySelector(".menu-toggle");
+const siteMenu = document.querySelector(".site-menu");
+
+const aboutMenuLink = document.getElementById("about-menu-link");
+
+aboutMenuLink.addEventListener("click", (event) => {
+    event.stopPropagation();
+    
+    enterAbout();
+    siteMenu.classList.remove("visible");
+})
+
+menuToggle.addEventListener("click", () => {
+    siteMenu.classList.toggle("visible");
+})
 
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
@@ -146,6 +163,8 @@ console.log("scheduling beat two");
 setTimeout(() => {
         enterBeatTwo();
         // scaleBeatOne();
+
+        
 
        
 }, 3000);
@@ -531,109 +550,18 @@ function enterBeatTwo() {
 
         console.log("project entered into");
         console.log("entering project", object);
-        // audio.play();
         projectOverlay.classList.add("visible");
         document.body.style.cursor = "default";
 
         hasEnteredProject = true;  
 
-       const projectId = object.userData.projectId;
+        const projectId = object.userData.projectId;
 
-        currentProject = projectLibrary[projectId];
-        
-
-        console.log("projectId:", projectId);
-        console.log("currentProject:", currentProject);
-        console.log("media:", currentProject.media);
-
-        document.getElementById("project-title").textContent = currentProject.title;
-        document.getElementById("project-tools").textContent = currentProject.tools.join(", ");
-        document.getElementById("project-year").textContent = currentProject.year;
-        document.getElementById("role").textContent = currentProject.role.join(", ");
-        document.getElementById("collaboration").textContent = currentProject.collaboration;
-        document.getElementById("project-type").textContent = currentProject.type;
-        // document.getElementById("credits").textContent = currentProject.credits;
-
-
-        const typeElement = document.getElementById("project-type");
-
-        typeElement.innerHTML = "";
-
-        currentProject.type.forEach(paragraph => {
-            const p = document.createElement("p");
-            p.textContent = paragraph;
-            typeElement.appendChild(p);
-        })
-
-        // const collaborationElement = document.getElementById("collaboration")
-        // collaborationElement.innerHTML = "";
-
-        // currentProject.collaboration.forEach(paragraph => {
-        //     if (currentProject.collaboration.length = 1) {
-        //         return;
-        //         console.log("only one line here")
-        //     }
-        //     else {const p = document.createElement("p");
-        //     p.textContent = paragraph;
-        //     collaborationElement.appendChild(p);}
-
-
-            
-        // });
-
-        const descriptionElement = document.getElementById("project-description");
-
-        descriptionElement.innerHTML = "";
-
-        currentProject.description.forEach(paragraph => {
-            const p = document.createElement("p");
-            p.textContent = paragraph;
-            descriptionElement.appendChild(p);
-        });
-
-        const creditElement = document.getElementById("credits");
-        creditElement.innerHTML = "";
-        currentProject.credits.forEach(paragraph => {
-            const p = document.createElement("p");
-            p.textContent = paragraph;
-            creditElement.appendChild(p);
-        });
-
-        const mediaContainer = document.getElementById("project-media");
-        mediaContainer.innerHTML = "";
-        currentProject.media.forEach (media => {
-            const figure = document.createElement("figure");
-            const img = document.createElement("img");
-            img.src = media.src
-            img.alt = currentProject.title;
-
-            figure.appendChild(img);
-
-            if (media.caption) {
-                const caption = document.createElement("figcaption");
-                caption.classList.add("media-caption");
-                caption.textContent = media.caption;
-                figure.appendChild(caption);
-                console.log(caption);
-            }
-            mediaContainer.appendChild(figure);
-        });
-
-        const vimeoContainer = document.getElementById("project-vimeo");
-        vimeoContainer.innerHTML = "";
-
-        if (currentProject.vimeo) {
-            const videoId = currentProject.vimeo.url.split("/").pop();
-            console.log(videoId);
-            const iframe = document.createElement("iframe");
-            iframe.src = `https://player.vimeo.com/video/${videoId}`;
-            iframe.allow = "autoplay; fullscreen; picture-in-picture";
-            iframe.allowFullscreen = true;
-
-            vimeoContainer.appendChild(iframe);
-        };
+        displayProject(projectId, projectLibrary);
 
     }
+
+   
 
     function exitProject() {
         insideProject = false;
@@ -682,6 +610,7 @@ function enterBeatTwo() {
     }
 
     function enterAbout(object) {
+        console.log("aboutEntered");
         insideProject = true;
 
         aboutOverlay.classList.add("visible");
@@ -714,5 +643,15 @@ function enterBeatTwo() {
         linksContainer.appendChild(br); 
 
         linksContainer.appendChild(vimeo);      
+
+        const bioElement = document.getElementById("about-bio");
+
+        bioElement.innerHTML = "";
+
+        aboutData.bio.forEach(paragraph => {
+            const p = document.createElement("p");
+            p.textContent = paragraph;
+            bioElement.appendChild(p);
+        })
 
     }

@@ -321,10 +321,30 @@
     "summary": "",
     "description": ["Grand St. (2018) is a camp-horror experimental film exploring the visceral experience of engaging with a familiar environment. Using sliding as both a literal movement and a experiential metaphor, the film wavers quickly between the surreal and the mundane; it is committed to depicting the vibrant, fertile, and sensorily-rich haunts of Manhattan New York's Chinatown."],
     "media": [
-          "assets/media/grand-street/hero_01.png",
-          "assets/media/grand-street/hero_02.png",
-          "assets/media/grand-street/sustain_01.png",
-          "assets/media/grand-street/end_01.png"
+
+          {
+          "src":    "assets/media/grand-street/hero_01.png",
+         "caption": "Video still"
+          },
+
+          {
+          "src":     "assets/media/grand-street/hero_02.png",
+         "caption": "Video still"
+          },
+
+          {
+          "src":    "assets/media/grand-street/sustain_01.png",
+         "caption": "Video still"
+          },
+
+           {
+          "src":    "assets/media/grand-street/end_01.png",
+         "caption": "Video still"
+          }
+         
+         
+          
+          
     ],
     "components": [],
     "exhibitions": ["Grand St. was shown at the Flat Earth Film Festival (2019), and as a part of PRACTICE X Wind (2018) at Artist&rsquo;s Space."],
@@ -346,10 +366,26 @@
     "summary": "",
     "description": ["a live performance that uses machine-vision landmark detection to remap the body into an inner landscape, inspired by the Daoist diagram Nei Jing Tu. A webcam tracks my movement in real time and translates tapping gestures into “site activations” on a projected display."],
     "media": [
-          "assets/media/tour/hero_01.jpg",
-          "assets/media/tour/hero_02.jpg",
-          "assets/media/tour/sustain_01.jpg",
-          "assets/media/tour/end_01.jpg"
+
+          {
+          "src":    "assets/media/tour/hero_01.jpg",
+         "caption": "Performance still"
+          },
+
+          {
+          "src":    "assets/media/tour/hero_02.jpg",
+         "caption": "Performance still"
+          },
+
+          {
+          "src":    "assets/media/tour/sustain_01.jpg",
+         "caption": "performance still"
+          },
+
+           {
+          "src":    "assets/media/tour/end_01.jpg",
+         "caption": "performance still"
+          }
     ],
     "components": [],
     "exhibitions": [""],
@@ -404,13 +440,43 @@
     "summary": "",
     "description": ["AmorousPolymers is a series of photoshoots that explore tenderness, abandonment, and erotic play, activated by 3D printed and hand-made body accessories."],
     "media": [
-          "assets/media/amorous-polymers/hero_01.jpg",
-          "assets/media/amorous-polymers/hero_02.jpg",
-          "assets/media/amorous-polymers/sustain_01.jpg",
-          "assets/media/amorous-polymers/sustain_02.jpg",
-          "assets/media/amorous-polymers/sustain_03.jpg",
-          "assets/media/amorous-polymers/end_01.jpg",
-          "assets/media/amorous-polymers/end_02.jpg"
+         
+
+
+             {
+          "src":   "assets/media/amorous-polymers/hero_01.jpg",
+         "caption": "Photoshoot"
+          },
+
+          {
+          "src":    "assets/media/amorous-polymers/hero_02.jpg",
+         "caption": "Photoshoot"
+          },
+
+          {
+          "src":    "assets/media/amorous-polymers/sustain_01.jpg",
+         "caption": "Photoshoot"
+          },
+
+          {
+          "src":    "assets/media/amorous-polymers/sustain_02.jpg",
+         "caption": "Photoshoot"
+          },
+
+          {
+          "src":    "assets/media/amorous-polymers/sustain_03.jpg",
+         "caption": "Photoshoot"
+          },
+
+          {
+          "src":     "assets/media/amorous-polymers/end_01.jpg",
+         "caption": "Photoshoot"
+          },
+
+          {
+          "src":     "assets/media/amorous-polymers/end_02.jpg",
+         "caption": "Photoshoot"
+          }
     ],
     "components": [],
     "exhibitions": [""],
