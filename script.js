@@ -145,7 +145,7 @@ console.log("scheduling beat two");
 setTimeout(() => {
         enterBeatTwo();
         // scaleBeatOne()
-}, 2000);
+}, 1000);
 
 // enterBeatTwo();
 
