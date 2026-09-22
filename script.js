@@ -214,7 +214,7 @@ function enterBeatTwo() {
     })
 
     const resolution = new THREE.Vector2(window.innerWidth, window.innerHeight);
-    const bloomPass = new UnrealBloomPass(resolution, 0.3, 0.1, 1);
+    const bloomPass = new UnrealBloomPass(resolution, 0.3, 0.5, 1);
 
     composer.addPass(bloomPass);
 
