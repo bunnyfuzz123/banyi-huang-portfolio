@@ -308,8 +308,8 @@ function enterBeatTwo() {
 
       loader6.load("assets/models/jojoduck_threeJS.glb", (gltf) =>{
         projectF = gltf.scene;
-        projectF.position.set(-4, 2, 0);
-        // projectF.scale.set(2, 2, 2);
+        projectF.position.set(-12, 6, 0);
+        projectF.scale.set(0.7, 0.7, 0.7);
         scene.add(projectF);
         projects.push(projectF);
         projectF.userData.projectId = "lunar-calendar";
