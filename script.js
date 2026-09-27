@@ -10,6 +10,10 @@ import { displayProject } from "./project-display.js";
 const menuToggle = document.querySelector(".menu-toggle");
 const siteMenu = document.querySelector(".site-menu");
 
+menuToggle.addEventListener("click", () => {
+    siteMenu.classList.toggle("visible");
+})
+
 const aboutMenuLink = document.getElementById("about-menu-link");
 
 aboutMenuLink.addEventListener("click", (event) => {
@@ -17,10 +21,6 @@ aboutMenuLink.addEventListener("click", (event) => {
     
     enterAbout();
     siteMenu.classList.remove("visible");
-})
-
-menuToggle.addEventListener("click", () => {
-    siteMenu.classList.toggle("visible");
 })
 
 const raycaster = new THREE.Raycaster();
@@ -55,6 +55,8 @@ const loader4 = new GLTFLoader(loadingManager);
 const loader5 = new GLTFLoader(loadingManager);
 const loader6 = new GLTFLoader(loadingManager);
 const loader7 = new GLTFLoader(loadingManager);
+const loader8 = new GLTFLoader(loadingManager);
+const loader9 = new GLTFLoader(loadingManager);
 
 
 let assetsLoaded = false;
@@ -101,6 +103,8 @@ let projectD;
 let projectE;
 let projectF;
 let projectG;
+let projectH;
+let projectI;
 
 let aboutMe;
 
@@ -315,7 +319,7 @@ function enterBeatTwo() {
 
     })
 
-     loader7.load("assets/models/constellation_threeJS.glb", (gltf) =>{
+     loader7.load("assets/models/constellation_threeJS.glb", (gltf) =>{ 
         projectG = gltf.scene;
         projectG.position.set(-6, 6, -6);
         projectG.scale.set(7, 7, 7);
@@ -324,6 +328,30 @@ function enterBeatTwo() {
         projectG.userData.projectId = "constellation";
         // projectE.material.wireframe = true;
         projectG.visible = false;
+
+    })
+
+    loader8.load("assets/models/hk_threeJS.glb", (gltf) =>{
+        projectH = gltf.scene;
+        projectH.position.set(-11, -4, -4);
+        projectH.scale.set(0.5, 0.5, 0.5);
+        scene.add(projectH);
+        projects.push(projectH);
+        projectH.userData.projectId = "amorous-polymers";
+        // projectE.material.wireframe = true;
+        projectH.visible = false;
+
+    })
+
+    loader9.load("assets/models/nekoBot.glb", (gltf) =>{
+        projectI = gltf.scene;
+        projectI.position.set(11, -4, 5);
+        // projectI.scale.set(0.5, 0.5, 0.5);
+        scene.add(projectI);
+        projects.push(projectI);
+        projectI.userData.projectId = "grand-street";
+        // projectE.material.wireframe = true;
+        projectI.visible = false;
 
     })
   
@@ -445,6 +473,10 @@ function enterBeatTwo() {
             projectG.rotation.x += 0.0001;
         }
 
+         if (projectH) {
+            projectH.rotation.z += 0.0002;
+        }
+
         raycaster.setFromCamera(mouse, camera);
         const intersects = raycaster.intersectObjects(projects, true);
       
@@ -555,10 +587,14 @@ function enterBeatTwo() {
 
         document.body.style.cursor = "default";
     }
+    
     function enterBeatThree() {
         projectE.visible = true;
         projectF.visible = true;
         projectG.visible = true;
+        projectH.visible = true;
+        projectI.visible = true;
+
         console.log("xerox paper should not be displayed")
       
     }

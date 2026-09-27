@@ -431,9 +431,9 @@
 
   "amorous-polymers": {
     "id": "amorous-polymers",
-    "title": "Amorous Polymers enterprise",
+    "title": "Amorous Polymers",
     "year": "2019 - 2021",
-    "type": "Design",
+    "type": ["Design", "Accessory Design", "Photoshoot"],
     "collaboration": "",
     "role": ["Artist", "designer"],
     "tools": ["Fusion 360", "Meshmixer"],
@@ -441,8 +441,6 @@
     "description": ["AmorousPolymers is a series of photoshoots that explore tenderness, abandonment, and erotic play, activated by 3D printed and hand-made body accessories."],
     "media": [
          
-
-
              {
           "src":   "assets/media/amorous-polymers/hero_01.jpg",
          "caption": "Photoshoot"
