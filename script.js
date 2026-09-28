@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { HDRLoader } from 'three/addons/loaders/HDRLoader.js';
+import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
 import { BokehPass } from 'three/addons/postprocessing/BokehPass.js';
 import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
@@ -29,10 +30,12 @@ const mouse = new THREE.Vector2();
 const audio = new Audio('assets/audio/dragon-studio-scary-scream-401725.mp3')
 
 const overviewCameraTargets = [
-    new THREE.Vector3(0, 0, 7),
+    new THREE.Vector3(0, 0, 0),
     new THREE.Vector3(-1, 1, 5),
     new THREE.Vector3(3, 0, 3),
+    new THREE.Vector3(4, -3, 1),
     new THREE.Vector3(0, -1, 6),
+    new THREE.Vector3(11, -10, 6),
 ];
 let currentOverviewIndex = 0;
 const cameraTarget = overviewCameraTargets[0].clone();
@@ -69,13 +72,13 @@ loadingManager.onLoad = function () {
     scaleBeatOne();
 }
 
-const ambientLight = new THREE.AmbientLight(0xffffff, 1);
-const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-directionalLight.position.set(5, 5, 5);
+// const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+// const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+// directionalLight.position.set(5, 5, 5);
 
 //E622FC
-const chickenDirectionalLight = new THREE.DirectionalLight(0xFDFFEB, 1);
-chickenDirectionalLight.position.set(-4, 2, 0);
+// const chickenDirectionalLight = new THREE.DirectionalLight(0xFDFFEB, 1);
+// chickenDirectionalLight.position.set(-4, 2, 0);
 
 let scrollAmount = 0;
 let scaleValue = 1; 
@@ -192,15 +195,21 @@ function enterBeatTwo() {
         100
     );
 
-    scene.add(ambientLight);
-    scene.add(directionalLight);
-    scene.add(chickenDirectionalLight);
-
-    renderer = new THREE.WebGLRenderer();
+    // scene.add(ambientLight);
+    // scene.add(directionalLight);
+    // scene.add(chickenDirectionalLight);
+    
+    renderer = new THREE.WebGLRenderer({alpha: true, antialias: true});
     renderer.setClearColor(0xffffff);
 
     renderer.setSize(window.innerWidth, window.innerHeight);
+
+    new RGBELoader().load('assets/textures/goegap_4k.hdr', function(texture) {
    
+        texture.mapping = THREE.EquirectangularReflectionMapping;
+        scene.environment = texture;
+    })
+
     document
         .getElementById("beat-two")
         .appendChild(renderer.domElement);
@@ -287,7 +296,7 @@ function enterBeatTwo() {
 
      loader4.load("assets/models/changE_dildo_ThreeJS.glb", (gltf) =>{
         projectD = gltf.scene;
-        projectD.position.set(-1, 2, -5);
+        projectD.position.set(-3, 0, -5);
         // projectD.scale.set(.1, .1, .1);
         scene.add(projectD);
         projects.push(projectD);
@@ -508,7 +517,7 @@ function enterBeatTwo() {
             lookTarget.copy(baseLookTarget);
         }
 
-        camera.position.lerp(cameraTarget, 0.025);
+        camera.position.lerp(cameraTarget, 0.04);
 
         camera.lookAt(lookTarget);
         // camera.lookAt(0, 0, 0);
