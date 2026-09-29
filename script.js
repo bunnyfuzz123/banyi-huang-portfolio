@@ -7,6 +7,8 @@ import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
 import { UnrealBloomPass } from "three/addons/postprocessing/UnrealBloomPass.js";
 import { displayProject } from "./project-display.js";
+import { WebGLRenderer, ACESFilmicToneMapping } from 'three';
+
 
 const menuToggle = document.querySelector(".menu-toggle");
 const siteMenu = document.querySelector(".site-menu");
@@ -198,17 +200,19 @@ function enterBeatTwo() {
     // scene.add(ambientLight);
     // scene.add(directionalLight);
     // scene.add(chickenDirectionalLight);
+
+     new RGBELoader().load('assets/textures/shanghai_bund_4k.hdr', function(texture) {
+   
+        texture.mapping = THREE.EquirectangularReflectionMapping;
+        scene.environment = texture;
+    })
     
     renderer = new THREE.WebGLRenderer({alpha: true, antialias: true});
     renderer.setClearColor(0xffffff);
 
     renderer.setSize(window.innerWidth, window.innerHeight);
-
-    new RGBELoader().load('assets/textures/goegap_4k.hdr', function(texture) {
-   
-        texture.mapping = THREE.EquirectangularReflectionMapping;
-        scene.environment = texture;
-    })
+    renderer.toneMapping = ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 0.8; 
 
     document
         .getElementById("beat-two")
@@ -227,7 +231,7 @@ function enterBeatTwo() {
     })
 
     const resolution = new THREE.Vector2(window.innerWidth, window.innerHeight);
-    const bloomPass = new UnrealBloomPass(resolution, 0.3, 0.5, 1);
+    const bloomPass = new UnrealBloomPass(resolution, 0.2, 0.25, 1);
 
     composer.addPass(bloomPass);
 
@@ -517,7 +521,7 @@ function enterBeatTwo() {
             lookTarget.copy(baseLookTarget);
         }
 
-        camera.position.lerp(cameraTarget, 0.04);
+        camera.position.lerp(cameraTarget, 0.03);
 
         camera.lookAt(lookTarget);
         // camera.lookAt(0, 0, 0);
