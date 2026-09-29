@@ -414,12 +414,12 @@ function enterBeatTwo() {
 
         
         if (selectedObject === null) {
-            approachProject(object);
+            approachProject(object, hitObject);
             } else if (selectedObject === object) {
                  if (object === aboutMe) {
                     enterAbout(object);
                  } else {
-                enterProject(object);
+                enterProject(object, hitObject);
             } 
             
             } else {
@@ -529,10 +529,10 @@ function enterBeatTwo() {
         // renderer.render(scene, camera);
     }
 
-    function approachProject(project) {
+    function approachProject(project, hitObject) {
         selectedObject = project;
 
-        const box = new THREE.Box3().setFromObject(project);
+        const box = new THREE.Box3().setFromObject(hitObject);
         const center = box.getCenter(new THREE.Vector3());
         const size = box.getSize(new THREE.Vector3());
 
@@ -558,7 +558,7 @@ function enterBeatTwo() {
         lookTarget.copy(baseLookTarget);
     }
 
-    function enterProject(object) {
+    function enterProject(object, hitObject) {
         insideProject = true;
 
         setProjectWireframe(object, false);
@@ -566,7 +566,7 @@ function enterBeatTwo() {
         hoveredObject = null;
 
 
-        const box = new THREE.Box3().setFromObject(object);
+        const box = new THREE.Box3().setFromObject(hitObject);
         const center = box.getCenter(new THREE.Vector3());
         center.set(
             center.x,
@@ -574,6 +574,8 @@ function enterBeatTwo() {
             center.z  
         );
         cameraTarget.copy(center);
+        camera.position.lerp(cameraTarget, 0.03);
+
         lookTarget.copy(center);
 
         console.log("project entered into");
