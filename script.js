@@ -322,6 +322,13 @@ function enterBeatTwo() {
 
     cameraTarget.copy(overviewCameraTargets[currentOverviewIndex]);
 
+    window.addEventListener("mousemove", function(event) {
+        mouseX = (event.clientX / this.window.innerWidth - 0.5) * 2;
+        mouseY = (event.clientY / this.window.innerHeight - 0.5) * 2;
+
+        mouse.x = mouseX;
+        mouse.y = -mouseY;
+    });
 
     window.addEventListener("click", function(event) {
         
