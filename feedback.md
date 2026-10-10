@@ -18,3 +18,18 @@ pay more attention to scaling of the objects. maybe bigger projects have bigger 
 she likes the center animated octohedron representing me. 
 
 ..
+
+
+## feedback from rox 
+### control overlays for helping visitors navigate - this could be a cute thing to proto
+    could have more advanced input methods. but i don't think it's necessary for now. now i should focus on basics 
+## more ways to navigate around a mesh/project
+
+## make hamburger clearer/prominent, taking into account color, size, and position  
+
+## grid layout should have some kind of continuity with spatial. right now it's just white background, but if it had some kind of movement, it could nicely mirror the spatial camera drift 
+
+
+feedback from erica 
+~~## remove landing page~~
+## reorder project overlay: have some images or videos precede the description

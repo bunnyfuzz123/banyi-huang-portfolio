@@ -301,3 +301,5 @@ Now put the work inside it.
 
 V1 notes: 
 -add sidebar labels: role/software/credits/exhibition history 
+
+

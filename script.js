@@ -70,17 +70,9 @@ let scalingFinished = false;
 loadingManager.onLoad = function () {
     console.log("beat two assets loaded");
     assetsLoaded = true;
-    scaleValue = 1;
-    scaleBeatOne();
+    // scaleValue = 1;
+    // // scaleBeatOne();
 }
-
-// const ambientLight = new THREE.AmbientLight(0xffffff, 1);
-// const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-// directionalLight.position.set(5, 5, 5);
-
-//E622FC
-// const chickenDirectionalLight = new THREE.DirectionalLight(0xFDFFEB, 1);
-// chickenDirectionalLight.position.set(-4, 2, 0);
 
 let scrollAmount = 0;
 let scaleValue = 1; 
@@ -139,55 +131,14 @@ loadProjects();
 
 loadAbout();
 
-// window.addEventListener("wheel", handleWheel);
-
-window.addEventListener("mousemove", function(event) {
-    mouseX = (event.clientX / this.window.innerWidth - 0.5)*2;
-    mouseY = (event.clientY / this.window.innerHeight - 0.5)*2;
-
-    mouse.x =  mouseX;
-    mouse.y = -mouseY;
-})
-
-
-console.log("scheduling beat two");
-setTimeout(() => {
-        enterBeatTwo();
-        // scaleBeatOne()
-}, 1000);
-
-// enterBeatTwo();
-
-function scaleBeatOne() {
-     if (scaleValue < 5) {
-            scaleValue += 0.025;
-            console.log("scaleValue is" + scaleValue);
-            document.getElementById("beat-one").style.transform = `scale(${scaleValue})`;
-            requestAnimationFrame(scaleBeatOne);
-
-        } else {
-            console.log("scaling finished");
-            scalingFinished = true;
-             tryRevealBeatTwo();
-        }
-};
-
-function tryRevealBeatTwo() {
-    if (assetsLoaded && scalingFinished && !beatTwoEntered) {
-        console.log("revealing beat two");
-
-        beatTwoEntered = true;
-        document.getElementById("beat-one").style.display = "none";
-        document.getElementById("beat-two").style.display = "block";
-
-        animateBeatTwo();
-
-    }
-}
+enterBeatTwo();
 
 
 //Build 3D environment and start it running 
 function enterBeatTwo() {
+    
+    beatTwoEntered = true;
+    document.getElementById("beat-two").style.display = "block";
 
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(
@@ -196,10 +147,6 @@ function enterBeatTwo() {
         0.1,
         100
     );
-
-    // scene.add(ambientLight);
-    // scene.add(directionalLight);
-    // scene.add(chickenDirectionalLight);
 
      new RGBELoader().load('assets/textures/shanghai_bund_4k.hdr', function(texture) {
    
@@ -397,7 +344,7 @@ function enterBeatTwo() {
         } 
     })
     
-    // animateBeatTwo();
+    animateBeatTwo();
 
 }
 
