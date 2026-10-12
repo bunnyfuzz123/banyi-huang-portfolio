@@ -99,6 +99,7 @@ let projectLibrary = {};
 let currentProject = null;
 let aboutLibrary = {};
 
+
 async function loadProjects() {
     const response = await fetch("projects.json");
     projectLibrary = await response.json();
@@ -394,10 +395,25 @@ function enterBeatTwo() {
 
     }
 
+    function updateMazuLabel() {
+        if (!projectA) return;
+
+        const label= document.getElementById("mazu-spatial-label");
+
+        const box = new THREE.Box3().setFromObject(projectA);
+        const position = box.getCenter(new THREE.Vector3());
+        position.project(camera);
+
+        const x = (position.x * 0.5 + 0.5) *window.innerWidth;
+        const y = (-position.y * 0.5 + 0.5)* window.innerHeight;
+
+        label.style.transform = `translate(${x}px, ${y}px)`;
+    }
 
      function animateBeatTwo() {
         requestAnimationFrame(animateBeatTwo);
 
+        updateMazuLabel();
         composer.render();
 
         if (projectA) {

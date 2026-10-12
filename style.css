@@ -239,3 +239,11 @@ nav {
 }
 
 
+.spatial-label {
+      position: fixed;
+    z-index: 9999;
+    /* color: red;
+    background: yellow; */
+    font-size: 30px;
+    pointer-events: none;
+}
