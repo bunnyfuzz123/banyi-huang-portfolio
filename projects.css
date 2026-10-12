@@ -13,10 +13,13 @@ body {
     cursor: pointer;
 }
 
-.project-card img {
+.project-card img,
+.project-card video {
     width: 100%;
     height: auto;
     display: block;
+    aspect-ratio: 16/9;
+    object-fit: cover;
 }
 
 .project-card h2 {

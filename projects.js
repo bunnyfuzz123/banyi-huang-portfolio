@@ -35,6 +35,31 @@ fetch("./projects.json")
             img.src = project.media[0].src;
             img.alt = project.title;
             card.appendChild(img);
+
+            //video hover preview
+            if (project.previewVideo) {
+                const video = document.createElement("video");
+                video.src = project.previewVideo;
+                video.muted = true;
+                video.loop = true;
+                video.playsInline = true;
+                video.style.display = "none";
+
+                card.appendChild(video);
+
+                card.addEventListener("mouseenter", () => {
+                    img.style.display = "none";
+                    video.style.display = "block";
+                    video.play();
+                })
+
+                card.addEventListener("mouseleave", () => {
+                    video.pause();
+                    video.currentTime = 0;
+                    video.style.display = "none";
+                    img.style.display = "block";
+                })
+            }
         }
     
         // Title
@@ -64,11 +89,11 @@ fetch("./projects.json")
 
     window.addEventListener("click", (event) => {
 
-    if (!aboutOverlay.contains(event.target) && !aboutMenuLink.contains(event.target)) {
-        if (insideAbout) {
-        exitAbout();
-        }
-    }
+    // if (!aboutOverlay.contains(event.target) && !aboutMenuLink.contains(event.target)) {
+    //     if (insideAbout) {
+    //     exitAbout();
+    //     }
+    // }
 
     
     const projectOverlay = document.getElementById("project-overlay");

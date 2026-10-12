@@ -4,6 +4,7 @@
     "id": "remazu",
     "title": "ReMazu: Iterations of Devotion 新妈祖崇拜",
     "year": "2022–2023",
+    "previewVideo": "assets/media/remazu/remazu_videoPreview.mp4",
     "type": ["Multimedia installation","Single-channel video", "3D printed sculptures"],
     "collaboration": "Sound by MIZU",
     "role": ["artist", "character modeling", "animation", "fabrication and assembling", "concept and research"], 
@@ -125,6 +126,7 @@
     "role": ["Artist", "animation production", "character design", "concept and research"],
     "tools": ["Blender", "Substance Painter", "Unreal Engine"],
     "summary": "A Sequel to ReMazu: Iterations of Devotion",
+    "previewVideo": "assets/media/triadic-patterning/triadic_preview.mp4",
     "description": ["Triadic Patterning is a worldbuilding project that evolved across a three-channel video, interactive website, and 3D printed sculpture. It explores the triadic relationship between Qianliyan (Thousand-Mile Eye), Shunfeng’er (Wind-Following Ear), and Mazu. Qianliyan and Shunfeng’er are guardian deities embodying the act of seeing and listening, appearing in myth as anthropomorphic tools. In my reframing, Qianliyan and Shunfeng’er cause havoc due to their separation and unexamined pain; sensing this chaos, Mazu binds them together in a contract of Daoist magic, completing a triadic patterning of embodied integration."],
     "media": [
           {
@@ -198,6 +200,7 @@
     "role": ["Artist", "Art direction", "performer", "concept and research", "animation", "fabrication"],
     "tools": ["Autodesk Maya", "Meshmixer"],
     "summary": "",
+    "previewVideo": "assets/media/dong/dong_preview.mp4",
     "description": ["DONG 洞 takes place in a lunar cave, where a post-gender being embarks on an auto-erotic journey of an impossible return to the maternal. Upon encountering a ritual object in the form of a rabbit dildo, the mystical being taps into their libido to recall their past life as Big-Headed Buddha."],
     "media": [
 
@@ -262,6 +265,7 @@
     "role": ["Artist", "animation", "design"],
     "tools": ["Blender", "Unreal Engine", "Polycam"],
     "summary": "",
+    "previewVideo": "assets/media/constellation/LEDMerge_preview.mp4",
     "description": ["A collaborative experiment with 3D scanned bodies and Blender geometry nodes. Designed the cover for First Language on Spotify. Experimented with Unreal Engine performance at the song release event at Creatrx's rooftop in Brooklyn, New York."],
     "media": [
         {
@@ -287,6 +291,7 @@
     "role": ["animation", "design"],
     "tools": ["Blender geometry nodes"],
     "summary": "",
+    "previewVideo": "assets/media/xerox/xerox_preview.mp4",
     "description": ["A paper flipping animation system built in Blender geometry nodes. Inspired by the  stack of petition material I had to bring to my visa appointment at the US Consulate in China. One thousand pages to prove my right to exist.", "The same animation system was deployed to convey the persistence of repetitive loops in limerence and projection."],
     "media": [
           {
@@ -405,6 +410,7 @@
     "role": ["Artist", "designer"],
     "tools": ["Blender geometry nodes", "Polycam"],
     "summary": "",
+    "previewVideo": "assets/media/lunar-calendar/jojoDuck_hoverPreview.mp4",
     "description": ["Design for Wing On Wo's Fourth Edition of From Chinatown, With Love, a Lunar New Year Calendar that celebrates the Year of the Wood Dragon by featuring local businesses in Manhattan Chinatown."],
     "media": [
 
