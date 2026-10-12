@@ -83,6 +83,7 @@
     "collaboration": "Sound by Blushfire",
     "role": ["artist", "character modeling", "animation", "performer", "concept and research"],
     "tools": ["Blender", "Unity"],
+    "previewVideo": "assets/media/sibuxiang/performance_preview.mp4",
     "summary": "The Four Not-Likes (四不象) is an interactive performance centered around a hybrid quadruped creature whose movement is controlled through a custom physical interface.",
     "description": [ "The Four Not-Likes (四不象) takes its name from the Chinese mythological creature Sibuxiang, whose body appears to contain features of multiple animals while belonging fully to none. The project centers around a digitally modeled and animated quadruped creature inhabiting a virtual environment.",
   "Built through a pipeline spanning 3D modeling, character animation, game-engine development and physical hardware, the work connects the creature's movement in Unity to a custom arcade-style controller. Through this relationship between bodily input, virtual movement and the hybrid creature, the project explores different ways of inhabiting and navigating a digital body."],
@@ -369,6 +370,7 @@
     "role": ["Artist", "performer"],
     "tools": ["Processing + webcam"],
     "summary": "",
+    "previewVideo": "assets/media/tour/performanceDemo_preview.mp4",
     "description": ["a live performance that uses machine-vision landmark detection to remap the body into an inner landscape, inspired by the Daoist diagram Nei Jing Tu. A webcam tracks my movement in real time and translates tapping gestures into “site activations” on a projected display."],
     "media": [
 
