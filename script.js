@@ -10,22 +10,6 @@ import { displayProject } from "./project-display.js";
 import { WebGLRenderer, ACESFilmicToneMapping } from 'three';
 
 
-const menuToggle = document.querySelector(".menu-toggle");
-const siteMenu = document.querySelector(".site-menu");
-
-menuToggle.addEventListener("click", () => {
-    siteMenu.classList.toggle("visible");
-})
-
-const aboutMenuLink = document.getElementById("about-menu-link");
-
-aboutMenuLink.addEventListener("click", (event) => {
-    event.stopPropagation();
-    
-    enterAbout();
-    siteMenu.classList.remove("visible");
-})
-
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 
@@ -39,6 +23,7 @@ const overviewCameraTargets = [
     new THREE.Vector3(0, -1, 6),
     new THREE.Vector3(11, -10, 6),
 ];
+
 let currentOverviewIndex = 0;
 const cameraTarget = overviewCameraTargets[0].clone();
 const lookTarget = new THREE.Vector3(0, 0, 0);
@@ -51,6 +36,7 @@ let insideProject = false;
 const projectOverlay = document.getElementById("project-overlay");
 const aboutOverlay = document.getElementById("about-overlay");
 const loadingManager = new THREE.LoadingManager();
+
 
 
 const loader1 = new GLTFLoader(loadingManager);
@@ -132,6 +118,7 @@ loadProjects();
 loadAbout();
 
 enterBeatTwo();
+
 
 
 //Build 3D environment and start it running 
@@ -462,7 +449,7 @@ function enterBeatTwo() {
         }
 
         if (selectedObject && !insideProject) {
-            const orbitStrength = 0.7;
+            const orbitStrength = 1;
 
             cameraTarget.set(
                 baseCameraTarget.x + mouse.x * orbitStrength,

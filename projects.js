@@ -1,22 +1,9 @@
 import { displayProject } from "./project-display.js";
 
-const menuToggle = document.querySelector(".menu-toggle");
-const siteMenu = document.querySelector(".site-menu");
 
 let insideAbout = false;
 
-menuToggle.addEventListener("click", () => {
-    siteMenu.classList.toggle("visible");
-})
 
-const aboutMenuLink = document.getElementById("about-menu-link");
-
-aboutMenuLink.addEventListener("click", (event) => {
-    event.stopPropagation();
-    
-    enterAbout();
-    siteMenu.classList.remove("visible");
-})
 
 const aboutOverlay = document.getElementById("about-overlay");
 
@@ -29,7 +16,7 @@ async function loadAbout() {
 
 loadAbout();
 
-document.querySelector(".about-link").addEventListener("click", enterAbout);
+// document.querySelector(".about-link").addEventListener("click", enterAbout);
 
 fetch("./projects.json")
     .then(response => response.json())

@@ -26,6 +26,8 @@ she likes the center animated octohedron representing me.
 ## more ways to navigate around a mesh/project
 
 ## make hamburger clearer/prominent, taking into account color, size, and position  
+~~replace hamburger with sigil png - which one works best?~~
+
 
 ## grid layout should have some kind of continuity with spatial. right now it's just white background, but if it had some kind of movement, it could nicely mirror the spatial camera drift 
 
@@ -33,3 +35,8 @@ she likes the center animated octohedron representing me.
 feedback from erica 
 ~~## remove landing page~~
 ## reorder project overlay: have some images or videos precede the description
+
+
+feedback from jenna
+~~## land on the grid view first - bit more interesting with the layout. more visual anchors~~
+## in the spatial view, after you click on a mesh and you approach. instead of just approaching, that action triggers a label to appear for hte work. just so people know at a glance what kind of thing to expect, or something to picque their curiosity. 
