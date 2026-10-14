@@ -45,8 +45,7 @@ body {
     padding: 2rem;
 }
 
-#project-overlay.visible,
-#about-overlay.visible {
+#project-overlay.visible {
     display: block;
     justify-content: center;
     align-items: center; 

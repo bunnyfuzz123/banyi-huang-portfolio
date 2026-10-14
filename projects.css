@@ -5,8 +5,13 @@ body {
 
 #project-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    width: 50vw;
     gap: 2rem;
+}
+
+#grid-container {
+    grid-column: 2 / 3;
 }
 
 .project-card {
@@ -22,8 +27,10 @@ body {
     object-fit: cover;
 }
 
-.project-card h2 {
+.project-card h4 {
     margin: 0.75rem 0 0;
+    font-weight: normal !important; 
+    font-style: italic !important;  
 }
 
 .project-card p {
@@ -44,6 +51,7 @@ body {
 
 #project-overlay {
     background: rgb(119, 146, 236);
+    z-index: 100;
 }
 
 
@@ -92,5 +100,13 @@ nav {
 }
 
 #about-overlay {
-    background: rgba(119, 146, 236, 1);
+    /* background: rgba(119, 146, 236, 1); */
+    display: block;
+    position: fixed;
+    width: 40vw; 
+    height: 100vh; 
+    /* right: 0 !important; 
+    top: 0; */
+    inset: auto 0 auto auto;
+    font-size: 1rem;
 }

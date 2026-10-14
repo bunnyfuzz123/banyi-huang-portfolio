@@ -12,6 +12,7 @@ let aboutLibrary = {};
 async function loadAbout() {
     const response = await fetch("./about.json");
     aboutLibrary = await response.json();
+    enterAbout();
 }
 
 loadAbout();
@@ -63,7 +64,7 @@ fetch("./projects.json")
         }
     
         // Title
-        const title = document.createElement("h2");
+        const title = document.createElement("h4");
         title.textContent = project.title;
         card.appendChild(title);
     
@@ -88,12 +89,6 @@ fetch("./projects.json")
 
 
     window.addEventListener("click", (event) => {
-
-    // if (!aboutOverlay.contains(event.target) && !aboutMenuLink.contains(event.target)) {
-    //     if (insideAbout) {
-    //     exitAbout();
-    //     }
-    // }
 
     
     const projectOverlay = document.getElementById("project-overlay");
