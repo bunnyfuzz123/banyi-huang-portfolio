@@ -1,0 +1,41 @@
+[   
+    {
+        "year": "2026",
+        "role": "artist",
+        "title": "Scores for Social Software",
+        "venue": "Fuser",
+        "location": "Los Angeles, CA"
+    },
+
+    {
+        "year": "2026",
+        "role": "panelist",
+        "title": "Orienting Desire",
+        "venue": "National Museum of Norway",
+        "location": "Oslo, Norway"
+    },
+
+     {
+        "year": "2025",
+         "role": "panelist",
+        "title": "Survival Strategies – The Dao of Planetary Breath",
+        "venue": "Rhizome x WSA",
+        "location": "New York, NY"
+    },
+
+    {
+        "year": "2023",
+         "role": "presenter",
+        "title": "Processing Community Dsy Taiwan",
+        "venue": "Processing",
+        "location": "online"
+    },
+
+     {
+        "year": "2023",
+        "title": "Chinatown: As Little as Possible",
+        "venue": "Columbia University",
+        "location": "New York, NY"
+    }
+
+]

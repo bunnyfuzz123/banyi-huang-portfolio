@@ -56,6 +56,47 @@ async function loadExhibitions() {
 
 loadExhibitions();
 
+let talksLibrary = {};
+
+async function loadTalks() {
+    const response = await fetch("./talks.json");
+    talksLibrary = await response.json();
+    
+    const talksList = document.getElementById("talks-list");
+    console.log(talksList);
+
+    talksLibrary.forEach(talk => {
+        const entry = document.createElement("p");
+
+        const year = document.createElement("span");
+        year.textContent = talk.year;
+        year.classList.add("talk-year");
+
+        const title = document.createElement("span");
+        title.textContent = `${talk.title},`;
+        title.classList.add("talk-title");
+
+        const venue = document.createElement("span");
+        venue.textContent = `${talk.venue}`;
+        venue.classList.add("talk-venue");
+
+        const location = document.createElement("span");
+        location.textContent = talk.location;
+        location.classList.add("talk-location");
+
+        const talkInfo = document.createElement("span");
+        talkInfo.classList.add("talk-info")
+        talkInfo.append(title, venue);
+
+        entry.append(year, talkInfo, location);
+
+;
+        talksList.appendChild(entry);
+    });
+}
+
+loadTalks();
+
 // document.querySelector(".about-link").addEventListener("click", enterAbout);
 
 fetch("./projects.json")

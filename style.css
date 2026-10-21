@@ -231,9 +231,9 @@ nav {
 }
 
 .menu-toggle:hover img{
-    filter: brightness(0) saturate(100%) invert(17%) sepia(99%) saturate(7490%)  hue-rotate(359deg) brightness(103%) contrast(116%) drop-shadow(2px 2px 1px rgb(0, 0, 0)) !important;
+    filter: brightness(0) saturate(100%) invert(19%) sepia(99%) saturate(7490%)  hue-rotate(359deg) brightness(103%) contrast(116%) drop-shadow(6px 6px 3px rgb(0, 0, 0)) !important;
 
-    animation: none; 
+    /* animation: none;  */
 }
 
 @keyframes sigilGlow {

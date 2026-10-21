@@ -86,65 +86,82 @@ nav {
     height: 8rem;
     display: block;
     object-fit: contain;
-    animation: sigilGlow 3s ease-in-out infinite;
+    animation: sigilGlow 5s ease-in-out infinite;
 }
 
 @keyframes sigilGlow {
-    0%, 100% {
+     0% {
         filter: drop-shadow(1px 1px 1px rgb(167, 251, 0));
     }
 
     50% {
-        filter: drop-shadow(6px 6px 6px rgb(167, 251, 0));
+        filter: drop-shadow(4px 4px 4px rgb(25, 0, 247));
+    }
+
+     100% {
+        filter: drop-shadow(4px 4px 4px rgb(213, 208, 255));
     }
 }
 
 #about-overlay {
-    /* background: rgba(119, 146, 236, 1); */
+    background: transparent !important;
     display: block;
-    position: fixed;
-    width: 40vw; 
-    height: 100vh; 
-    /* right: 0 !important; 
-    top: 0; */
-    inset: auto 0 auto auto;
+    position: absolute;
+    width: 40vw;
+    height: auto;
+    overflow: visible;
+    /* top: 2rem; */
+    /* right: 2rem; */
+    bottom: auto !important;
+    left: auto !important;
+    top: auto !important;
     font-size: 1rem;
 }
 
-#about-overlay.visible {
-    display: block;
-}
 
 
-#exhibition-list p {
+#exhibition-list p,
+#talks-list p {
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
 }
 
-.exhibition-year {
+.exhibition-year,
+.talk-year {
     margin-right: 3rem;
 }
 
-.exhibition-title {
+.exhibition-title,
+.talk-title {
     /* margin-right: 1rem; */
     font-style: italic;
     white-space: nowrap;
 }
 
-.exhibition-venue {
+.exhibition-venue,
+.talk-venue {
     /* margin-right: 1rem; */
     white-space: nowrap;
+    margin-left: 0.25rem;
 }
 
-.exhibition-location {
+.exhibition-location,
+.talk-location {
     margin-left: auto !important;
     text-align: right !important;
 } 
 
-.exhibition-info {
+.exhibition-info,
+.talk-info {
     display: flex;
     flex-wrap: wrap;
     flex: 1;
     min-width: 0;
+}
+
+#selected-exhibitions,
+#selected-talks,
+#contact-section {
+      margin-top: 3rem;
 }
