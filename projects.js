@@ -17,6 +17,45 @@ async function loadAbout() {
 
 loadAbout();
 
+let exhibitionsLibrary = {};
+
+async function loadExhibitions() {
+    const response = await fetch("./exhibitions.json");
+    exhibitionsLibrary = await response.json();
+    
+    const exhibitionList = document.getElementById("exhibition-list");
+    exhibitionsLibrary.forEach(exhibition => {
+        const entry = document.createElement("p");
+
+        const year = document.createElement("span");
+        year.textContent = exhibition.year;
+        year.classList.add("exhibition-year");
+
+        const title = document.createElement("span");
+        title.textContent = `${exhibition.title},`;
+        title.classList.add("exhibition-title");
+
+        const venue = document.createElement("span");
+        venue.textContent = `${exhibition.venue}`;
+        venue.classList.add("exhibition-venue");
+
+        const location = document.createElement("span");
+        location.textContent = exhibition.location;
+        location.classList.add("exhibition-location");
+
+        const exhibitionInfo = document.createElement("span");
+        exhibitionInfo.classList.add("exhibition-info")
+        exhibitionInfo.append(title, venue);
+
+        entry.append(year, exhibitionInfo, location);
+
+;
+        exhibitionList.appendChild(entry);
+    });
+}
+
+loadExhibitions();
+
 // document.querySelector(".about-link").addEventListener("click", enterAbout);
 
 fetch("./projects.json")
@@ -73,7 +112,9 @@ fetch("./projects.json")
         year.textContent = project.year;
         card.appendChild(year);
     
-        
+       const medium = document.createElement("p");
+        medium.textContent = project.type.join(", ");
+        card.appendChild(medium);
 
         card.addEventListener("click", () => {
             event.stopPropagation();
@@ -113,7 +154,7 @@ function enterAbout() {
         aboutOverlay.classList.add("visible");
 
         document.getElementById("about-title").textContent = aboutData.title;
-        document.getElementById("about-contact").textContent = aboutData.contact;
+        // document.getElementById("contact-section").textContent = aboutData.contact;
 
         const linksContainer = document.getElementById("about-links");
         linksContainer.innerHTML = "";
@@ -153,3 +194,5 @@ function enterAbout() {
 
         document.body.style.cursor = "default";
     }
+
+

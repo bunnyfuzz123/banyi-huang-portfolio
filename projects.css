@@ -110,3 +110,41 @@ nav {
     inset: auto 0 auto auto;
     font-size: 1rem;
 }
+
+#about-overlay.visible {
+    display: block;
+}
+
+
+#exhibition-list p {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+}
+
+.exhibition-year {
+    margin-right: 3rem;
+}
+
+.exhibition-title {
+    /* margin-right: 1rem; */
+    font-style: italic;
+    white-space: nowrap;
+}
+
+.exhibition-venue {
+    /* margin-right: 1rem; */
+    white-space: nowrap;
+}
+
+.exhibition-location {
+    margin-left: auto !important;
+    text-align: right !important;
+} 
+
+.exhibition-info {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    min-width: 0;
+}

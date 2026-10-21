@@ -29,7 +29,7 @@ she likes the center animated octohedron representing me.
 ~~replace hamburger with sigil png - which one works best?~~
 
 
-## grid layout should have some kind of continuity with spatial. right now it's just white background, but if it had some kind of movement, it could nicely mirror the spatial camera drift 
+~~## grid layout should have some kind of continuity with spatial. right now it's just white background, but if it had some kind of movement, it could nicely mirror the spatial camera drift~~ 
 
 
 feedback from erica 

@@ -29,8 +29,7 @@ body {
     height: 100vh;
 }
 
-#project-overlay,
-#about-overlay {
+#project-overlay {
     position: absolute;
     background: rgba(119, 146, 236, 0.5);
     border-style: solid;
@@ -71,6 +70,22 @@ body {
 #about-overlay {
     font-size: 2rem;
     margin-top: 2rem;
+    background: rgba(119, 146, 236, 0.5);
+    position: absolute;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    inset: 4em;
+    z-index: 10;
+    display: none;
+    overflow-y: auto;
+    overflow-x: hidden; 
+    scrollbar-width: none;;
+    padding: 2rem;
+}
+
+#about-overlay.visible {
+    display: block;
 }
 
 #about-bio {
@@ -204,7 +219,6 @@ nav {
     height: auto !important;
     padding: 0 !important;
     margin: 0 !important;
-   
 }
 
 
@@ -213,29 +227,40 @@ nav {
     height: 8rem;
     display: block;
     object-fit: contain;
-    animation: sigilGlow 3s ease-in-out infinite;
+    animation: sigilGlow 5s ease-in-out infinite;
+}
+
+.menu-toggle:hover img{
+    filter: brightness(0) saturate(100%) invert(17%) sepia(99%) saturate(7490%)  hue-rotate(359deg) brightness(103%) contrast(116%) drop-shadow(2px 2px 1px rgb(0, 0, 0)) !important;
+
+    animation: none; 
 }
 
 @keyframes sigilGlow {
-    0%, 100% {
+    0% {
         filter: drop-shadow(1px 1px 1px rgb(167, 251, 0));
     }
 
     50% {
-        filter: drop-shadow(6px 6px 6px rgb(167, 251, 0));
+        filter: drop-shadow(4px 4px 4px rgb(25, 0, 247));
+    }
+
+     100% {
+        filter: drop-shadow(4px 4px 4px rgb(213, 208, 255));
     }
 }
 
 .menu-toggle {
     font-size: 4rem;
     background: transparent;
-    border: 0;
     cursor: pointer;
     position: fixed;
-    left: 1rem;
-    bottom: 1rem;
+    left: auto !important;
+    right: 1rem !important;
+    bottom: 1rem !important;
     z-index: 102;
 }
+
 
 
 .spatial-label {

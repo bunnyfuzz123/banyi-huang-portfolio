@@ -5,7 +5,7 @@
     "title": "ReMazu: Iterations of Devotion 新妈祖崇拜",
     "year": "2022–2023",
     "previewVideo": "assets/media/remazu/remazu_videoPreview.mp4",
-    "type": ["Multimedia installation","Single-channel video", "3D printed sculptures"],
+    "type": ["Multimedia installation","single-channel video", "3D printed sculptures"],
     "collaboration": "Sound by MIZU",
     "role": ["artist", "character modeling", "animation", "fabrication and assembling", "concept and research"], 
     "tools": ["Autodesk Maya", "Substance Painter", "Meshmixer"],
@@ -79,7 +79,7 @@
     "id": "sibuxiang",
     "title": "Sibuxiang: The Four Not-Likes",
     "year": "2026",
-    "type": ["Multimedia performance", "Single-channel projection", "Unity build", "custom controller"],
+    "type": ["Multimedia performance", "single-channel projection", "Unity build", "custom controller"],
     "collaboration": "Sound by Blushfire",
     "role": ["artist", "character modeling", "animation", "performer", "concept and research"],
     "tools": ["Blender", "Unity"],
@@ -122,7 +122,7 @@
     "id": "triadic-patterning",
     "title": "Triadic Patterning",
     "year": "2023-2024",
-    "type": ["Multimedia installation","Three-channel video: 15:13 min", "3d-printed sculptures: 16 x 11 x 16 inches"],
+    "type": ["Multimedia installation","three-channel video: 15:13 min", "3d-printed sculptures: 16 x 11 x 16 inches"],
     "collaboration": "Sound design by Taüs Jafar",
     "role": ["Artist", "animation production", "character design", "concept and research"],
     "tools": ["Blender", "Substance Painter", "Unreal Engine"],
@@ -196,7 +196,7 @@
     "id": "dong",
     "title": "DONG",
     "year": "2021",
-    "type": ["Multimedia installation","Single-channel video", "3d-printed sculptures"],
+    "type": ["Multimedia installation","single-channel video", "3d-printed sculptures"],
     "collaboration": ["Director: Maya Yu Zhang", " Sound design: Lemon Guo, Mengtai Zhang, and FURTIVE", " Visual effects: Eva Wo"],
     "role": ["Artist", "Art direction", "performer", "concept and research", "animation", "fabrication"],
     "tools": ["Autodesk Maya", "Meshmixer"],
@@ -320,7 +320,7 @@
     "id": "grand-street",
     "title": "Grand Street",
     "year": "2018",
-    "type": "Short Film",
+    "type": ["Short Film"],
     "collaboration": ["Co-directed with Raine Zhong", "performed by Raine Zhong"],
     "role": ["Directing, filming, and editing"],
     "tools": [""],
@@ -348,8 +348,7 @@
          "caption": "Video still"
           }
          
-         
-          
+        
           
     ],
     "components": [],
@@ -365,7 +364,7 @@
     "id": "a-tour",
     "title": "A Tour of Famous Landmarks",
     "year": "2026",
-    "type": "Interactive performance",
+    "type": ["Interactive performance", "media-pipe body tracking"],
     "collaboration": "",
     "role": ["Artist", "performer"],
     "tools": ["Processing + webcam"],
@@ -441,7 +440,7 @@
     "id": "amorous-polymers",
     "title": "Amorous Polymers",
     "year": "2019 - 2021",
-    "type": ["Design", "Accessory Design", "Photoshoot"],
+    "type": ["Wearables", "Photoshoot"],
     "collaboration": "",
     "role": ["Artist", "designer"],
     "tools": ["Fusion 360", "Meshmixer"],
