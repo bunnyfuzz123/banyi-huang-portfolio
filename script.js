@@ -191,7 +191,7 @@ function enterBeatTwo() {
 
     const material2 = new THREE.MeshBasicMaterial({
         color: 0x8A2BE2,
-        wireframe: true
+        // wireframe: true
     })
 
     aboutMe = new THREE.Mesh(
@@ -268,10 +268,11 @@ function enterBeatTwo() {
 
       loader6.load("assets/models/jojoduck_threeJS.glb", (gltf) =>{
         projectF = gltf.scene;
-        projectF.position.set(-12, 6, 0);
-        projectF.scale.set(0.7, 0.7, 0.7);
+        projectF.position.set(-20, 6, -10);
+        // projectF.scale.set(0.7, 0.7, 0.7);
         scene.add(projectF);
         projects.push(projectF);
+        // projectF.material.wireframe = true;
         projectF.userData.projectId = "lunar-calendar";
         projectF.visible = false;
         const projectData = projectLibrary[projectF.userData.projectId];
@@ -280,8 +281,8 @@ function enterBeatTwo() {
 
      loader7.load("assets/models/constellation_threeJS.glb", (gltf) =>{ 
         projectG = gltf.scene;
-        projectG.position.set(-6, 6, -6);
-        projectG.scale.set(7, 7, 7);
+        projectG.position.set(-25, 6, -6);
+        projectG.scale.set(10, 10, 10);
         scene.add(projectG);
         projects.push(projectG);
         projectG.userData.projectId = "constellation";
@@ -490,7 +491,8 @@ function enterBeatTwo() {
         }
 
         if (projectG) {
-            projectG.rotation.x += 0.0001;
+            projectG.rotation.x += 0.001;
+            projectG.rotation.z += 0.001;
         }
 
          if (projectH) {
@@ -683,7 +685,7 @@ function enterBeatTwo() {
     function setAboutMeDetail(newDetail) {
         aboutMe.geometry.dispose();
         aboutMe.geometry = new THREE.OctahedronGeometry(
-            0.2,
+            0.4,
             newDetail
         );
     }
