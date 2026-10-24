@@ -54,7 +54,6 @@ let assetsLoaded = false;
 let scalingFinished = false;
 
 loadingManager.onLoad = function () {
-    console.log("beat two assets loaded");
     assetsLoaded = true;
     // scaleValue = 1;
     // // scaleBeatOne();
@@ -104,21 +103,22 @@ async function loadProjects() {
     const response = await fetch("projects.json");
     projectLibrary = await response.json();
 
-    console.log("projectLibrary loaded:", projectLibrary);
 
 };
 
 async function loadAbout() {
     const response = await fetch("about.json");
     aboutLibrary = await response.json();
-    console.log("aboutLibrary loaded");
 }
 
-loadProjects(); 
+async function init() {
+    await loadProjects();
+    await loadAbout();
 
-loadAbout();
+    enterBeatTwo();
+}
 
-enterBeatTwo();
+init();
 
 
 
@@ -207,20 +207,26 @@ function enterBeatTwo() {
 
     loader1.load("assets/models/mazu_for3jsWebsite_alternative.glb", (gltf) =>{
         projectA = gltf.scene;
-        projectA.position.set(-3, -4, 1);
-        projectA.scale.set(2, 2, 2);
+        projectA.position.set(-4, -3, 1);
+        projectA.scale.set(2.5, 2.5, 2.5);
         scene.add(projectA);
         projects.push(projectA);
         projectA.userData.projectId = "remazu";
+        
+       const projectData = projectLibrary[projectA.userData.projectId];
+        createSpatialLabel(projectA, projectData);
+        
     })
 
     loader2.load("assets/models/TriadicMerge_forThreeJSPortfolio_centered_optimized.glb", (gltf) =>{
         projectB = gltf.scene;
         projectB.position.set(8, 1, -2);
-        projectB.scale.set(6, 6, 6);
+        projectB.scale.set(12, 12, 12);
         scene.add(projectB);
         projects.push(projectB);
         projectB.userData.projectId = "triadic-patterning";
+        const projectData = projectLibrary[projectB.userData.projectId];
+        createSpatialLabel(projectB, projectData);
     })
 
     loader3.load("assets/models/Sibuxiang_forThreeJSPortfolio.glb", (gltf) =>{
@@ -231,26 +237,32 @@ function enterBeatTwo() {
         scene.add(projectC);
         projects.push(projectC);
         projectC.userData.projectId = "sibuxiang";
+        const projectData = projectLibrary[projectC.userData.projectId];
+        createSpatialLabel(projectC, projectData);
     })
 
      loader4.load("assets/models/changE_dildo_ThreeJS.glb", (gltf) =>{
         projectD = gltf.scene;
-        projectD.position.set(-3, 0, -5);
-        // projectD.scale.set(.1, .1, .1);
+        projectD.position.set(-3, 0, -8);
+        projectD.scale.set(2, 2, 2);
         scene.add(projectD);
         projects.push(projectD);
         projectD.userData.projectId = "dong";
+        const projectData = projectLibrary[projectD.userData.projectId];
+        createSpatialLabel(projectD, projectData);
     })
 
     loader5.load("assets/models/xeroxStack_threeJSPortfolio.glb", (gltf) =>{
         projectE = gltf.scene;
         projectE.position.set(3, 0, -4);
-        // projectE.scale.set(2, 2, 2);
+        projectE.scale.set(1.4, 1.4, 1.4);
         scene.add(projectE);
         projects.push(projectE);
         projectE.userData.projectId = "xerox";
         // projectE.material.wireframe = true;
         projectE.visible = false;
+        const projectData = projectLibrary[projectE.userData.projectId];
+        createSpatialLabel(projectE, projectData);
 
     })
 
@@ -261,10 +273,9 @@ function enterBeatTwo() {
         scene.add(projectF);
         projects.push(projectF);
         projectF.userData.projectId = "lunar-calendar";
-        // projectE.material.wireframe = true;
         projectF.visible = false;
-       
-
+        const projectData = projectLibrary[projectF.userData.projectId];
+        createSpatialLabel(projectF, projectData);
     })
 
      loader7.load("assets/models/constellation_threeJS.glb", (gltf) =>{ 
@@ -276,31 +287,34 @@ function enterBeatTwo() {
         projectG.userData.projectId = "constellation";
         // projectE.material.wireframe = true;
         projectG.visible = false;
-
+        const projectData = projectLibrary[projectG.userData.projectId];
+        createSpatialLabel(projectG, projectData);
     })
 
     loader8.load("assets/models/hk_threeJS.glb", (gltf) =>{
         projectH = gltf.scene;
         projectH.position.set(-11, -4, -4);
-        projectH.scale.set(0.5, 0.5, 0.5);
+        projectH.scale.set(1, 1, 1);
         scene.add(projectH);
         projects.push(projectH);
         projectH.userData.projectId = "amorous-polymers";
-        // projectE.material.wireframe = true;
         projectH.visible = false;
+        const projectData = projectLibrary[projectH.userData.projectId];
+        createSpatialLabel(projectH, projectData);
 
     })
 
     loader9.load("assets/models/nekoBot.glb", (gltf) =>{
         projectI = gltf.scene;
-        projectI.position.set(11, -4, 5);
+        projectI.position.set(11, -4, 7);
         // projectI.scale.set(0.5, 0.5, 0.5);
         scene.add(projectI);
         projects.push(projectI);
         projectI.userData.projectId = "grand-street";
         // projectE.material.wireframe = true;
         projectI.visible = false;
-
+        const projectData = projectLibrary[projectI.userData.projectId];
+        createSpatialLabel(projectI, projectData);
     })
   
 
@@ -371,12 +385,17 @@ function enterBeatTwo() {
 
     function handleBeatTwoScroll() {
 
+        if (selectedObject?.userData.projectId) {
+            const label = document.getElementById(
+                `${selectedObject.userData.projectId}-spatial-label`
+            );
+
+            if (label) {
+                label.style.display = "none";
+            }
+        }
          selectedObject = null;
          insideProject = false;
-
-
-        //  projectOverlay.classList.remove("visible");
-        //  aboutOverlay.classList.remove("visible");
 
          currentOverviewIndex++;
 
@@ -395,12 +414,17 @@ function enterBeatTwo() {
 
     }
 
-    function updateMazuLabel() {
-        if (!projectA) return;
+    function updateSpatialLabel(project, labelId) {
+        if (!project) return;
 
-        const label= document.getElementById("mazu-spatial-label");
+        const label= document.getElementById(labelId);
 
-        const box = new THREE.Box3().setFromObject(projectA);
+
+        if (!label) {
+            return;
+        }
+
+        const box = new THREE.Box3().setFromObject(project);
         const position = box.getCenter(new THREE.Vector3());
         position.project(camera);
 
@@ -410,10 +434,34 @@ function enterBeatTwo() {
         label.style.transform = `translate(${x}px, ${y}px)`;
     }
 
+
+    function createSpatialLabel(project, projectData) {
+         console.log("INSIDE CREATE SPATIAL LABEL");
+        const label = document.createElement("div");
+
+        label.id = `${project.userData.projectId}-spatial-label`;
+        label.classList.add("spatial-label");
+
+        const title = document.createElement("div");
+        title.classList.add("title");
+        title.textContent = projectData.title;
+
+        const meta = document.createElement("div");
+        meta.classList.add("meta");
+        meta.textContent = projectData.type.join(", ");
+        label.append(title, meta);
+
+        const beatTwo = document.getElementById("beat-two");
+        document.body.insertBefore(label, beatTwo);
+
+        return label.id;
+        }
+
      function animateBeatTwo() {
         requestAnimationFrame(animateBeatTwo);
 
-        updateMazuLabel();
+    
+
         composer.render();
 
         if (projectA) {
@@ -422,8 +470,8 @@ function enterBeatTwo() {
         }
      
         if (projectB) {
-             projectB.position.x += 0.0001;
-            projectB.rotation.y += 0.0003;
+            //  projectB.position.x += 0.0001;
+            projectB.rotation.y += 0.003;
         }
 
         if (projectC) {
@@ -431,12 +479,14 @@ function enterBeatTwo() {
         }
 
         if (projectD) {
-            projectD.rotation.y += 0.0005;
+            projectD.rotation.y += 0.005;
         }
 
         if (projectE) {
-            projectE.rotation.y += 0.0002;
-            projectE.rotation.z += 0.0002;
+            projectE.rotation.y += 0.004;
+            projectE.rotation.z += 0.004;
+            projectE.rotation.x += 0.004;
+
         }
 
         if (projectG) {
@@ -465,7 +515,7 @@ function enterBeatTwo() {
         }
 
         if (selectedObject && !insideProject) {
-            const orbitStrength = 1;
+            const orbitStrength = 8;
 
             cameraTarget.set(
                 baseCameraTarget.x + mouse.x * orbitStrength,
@@ -478,16 +528,47 @@ function enterBeatTwo() {
             lookTarget.copy(baseLookTarget);
         }
 
-        camera.position.lerp(cameraTarget, 0.03);
+        camera.position.lerp(cameraTarget, 0.01);
 
         camera.lookAt(lookTarget);
-        // camera.lookAt(0, 0, 0);
+        projects.forEach(project => {
+        const projectId = project.userData.projectId;
 
-        // renderer.render(scene, camera);
+        if (projectId && project.visible) {
+                updateSpatialLabel(
+                    project,
+                    `${projectId}-spatial-label`
+                );
+            }
+        });
+
     }
 
     function approachProject(project, hitObject) {
+
+        // Hide the previously selected project's label
+        if (selectedObject?.userData.projectId) {
+            const previousLabel = document.getElementById(
+                `${selectedObject.userData.projectId}-spatial-label`
+            );
+
+            if (previousLabel) {
+                previousLabel.style.display = "none";
+            }
+        }
+
+        // Select the new project
         selectedObject = project;
+
+        // Show the new project's label
+      
+        const label = document.getElementById(
+        `${project.userData.projectId}-spatial-label`
+        );
+
+        if (label) {
+            label.style.display = "block";
+        }
 
         const box = new THREE.Box3().setFromObject(hitObject);
         const center = box.getCenter(new THREE.Vector3());
@@ -518,6 +599,14 @@ function enterBeatTwo() {
     function enterProject(object, hitObject) {
         insideProject = true;
 
+        const label = document.getElementById(
+        `${object.userData.projectId}-spatial-label`
+        );
+
+        if (label) {
+            label.style.display = "none";
+        }
+
         setProjectWireframe(object, false);
 
         hoveredObject = null;
@@ -531,7 +620,7 @@ function enterBeatTwo() {
             center.z  
         );
         cameraTarget.copy(center);
-        camera.position.lerp(cameraTarget, 0.03);
+        camera.position.lerp(cameraTarget, 0.01);
 
         lookTarget.copy(center);
 
@@ -567,7 +656,6 @@ function enterBeatTwo() {
         projectH.visible = true;
         projectI.visible = true;
 
-        console.log("xerox paper should not be displayed")
       
     }
 
@@ -601,17 +689,16 @@ function enterBeatTwo() {
     }
 
     function enterAbout(object) {
-        console.log("aboutEntered");
+       
         insideProject = true;
 
         aboutOverlay.classList.add("visible");
 
         document.body.style.cursor = "default";
-        console.log("entered about");
+       
         
         const aboutId = aboutMe.userData.aboutId;
         const aboutData = aboutLibrary;
-        console.log(aboutLibrary);
 
         document.getElementById("about-title").textContent = aboutData.title;
         document.getElementById("about-bio").textContent = aboutData.bio;

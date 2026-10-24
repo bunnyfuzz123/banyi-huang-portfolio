@@ -264,10 +264,23 @@ nav {
 
 
 .spatial-label {
-      position: fixed;
+    position: fixed;
     z-index: 9999;
-    /* color: red;
-    background: yellow; */
-    font-size: 30px;
+    font-size: 1.4rem;
     pointer-events: none;
+    width: max-content !important;
+    height: auto;
+    display: none;
+    background-color:rgb(251, 251, 253, 0.5);
+    padding: 1rem !important;
+}
+
+.spatial-label-title,
+.spatial-label-meta {
+    position: static;
+    display: block;
+}
+
+.spatial-label-title {
+    font-style: italic;
 }
