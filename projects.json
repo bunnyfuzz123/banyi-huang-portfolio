@@ -15,22 +15,22 @@
   "Built through a pipeline spanning 3D modeling, character animation, game-engine development and physical hardware, the work connects the creature's movement in Unity to a custom arcade-style controller. Through this relationship between bodily input, virtual movement and the hybrid creature, the project explores different ways of inhabiting and navigating a digital body."],
     "media": [
           {
-          "src": "assets/media/sibuxiang/hero_01.JPEG",
+          "src": "assets/media/sibuxiang/hero_01.jpg",
          "caption": "The Four Not-Likes, 2026. Performance still at Water & Power, Los Angeles. Photo credit: Jiapei Yao"
           },
 
           {
-          "src": "assets/media/sibuxiang/hero_02.JPG",
+          "src": "assets/media/sibuxiang/hero_02.jpg",
          "caption": "The Four Not-Likes, 2026. Performance still at Water & Power, Los Angeles. Photo credit: Hyunseo Cho"
           },
 
           {
-          "src": "assets/media/sibuxiang/sustain_01.JPG",
+          "src": "assets/media/sibuxiang/sustain_01.jpg",
          "caption": "The Four Not-Likes, 2026. Performance still  at Water & Power, Los Angeles. Photo credit: Hyunseo Cho"
           },
 
           {
-          "src":  "assets/media/sibuxiang/end_01.JPEG",
+          "src":  "assets/media/sibuxiang/end_01.jpg",
          "caption": "The Four Not-Likes, 2026. Performance still at Water & Power, Los Angeles. Photo credit: Hyunseo Cho"
           }  
 
