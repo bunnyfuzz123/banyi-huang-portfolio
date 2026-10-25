@@ -90,6 +90,23 @@ let projectI;
 
 let aboutMe;
 
+let exhibitionsLibrary = {};
+let talksLibrary = {};
+
+const vertices = [
+   1, 1, 1,
+   -1, -1, 1,
+   -1, 1, -1,
+   1, -1, -1
+];  
+
+const indices = [
+    2, 1, 0,
+    0,3, 2,
+    1, 3, 0,
+    2, 3, 1
+];
+
 let projects = [];
 
 let hoveredObject = null;
@@ -111,10 +128,27 @@ async function loadAbout() {
     aboutLibrary = await response.json();
 }
 
+function displayExhibitions(container, exhibitions) {
+    exhibitions.forEach(exhibition => {
+        // your existing construction code
+    });
+}
+
+async function loadExhibitions() {
+    const response = await fetch("exhibitions.json");
+    exhibitionsLibrary = await response.json();
+}
+
+async function loadTalks() {
+    const response = await fetch("talks.json");
+    talksLibrary = await response.json();
+}
+
 async function init() {
     await loadProjects();
     await loadAbout();
-
+    await loadExhibitions();
+    await loadTalks();
     enterBeatTwo();
 }
 
@@ -179,7 +213,7 @@ function enterBeatTwo() {
     setInterval(() => {
         detail += direction; 
 
-        if (detail === 5) {
+        if (detail === 6) {
             direction = -1;
         }
 
@@ -187,19 +221,29 @@ function enterBeatTwo() {
             direction = 1;
         }
         setAboutMeDetail(detail);
-    }, 200);
+    }, 250);
 
-    const material2 = new THREE.MeshBasicMaterial({
-        color: 0x8A2BE2,
-        // wireframe: true
+    const material2 = new THREE.MeshStandardMaterial({
+        color: 0xFFFDD0,
+        roughness: 0.45,
+        metalness: 0.2,
+        wireframe: true
     })
 
+
+    const aboutGeometry = new THREE.PolyhedronGeometry(
+        vertices,
+        indices,
+        0.2,
+        detail
+    );
+
     aboutMe = new THREE.Mesh(
-        new THREE.OctahedronGeometry(0.2, detail), 
+        aboutGeometry,
         material2
     );
     
-    aboutMe.position.set(0, 0, 0);
+    aboutMe.position.set(0, 1, -2);
     scene.add(aboutMe);
     projects.push(aboutMe);
     aboutMe.userData.aboutId = "about";
@@ -207,8 +251,9 @@ function enterBeatTwo() {
 
     loader1.load("assets/models/mazu_for3jsWebsite_alternative.glb", (gltf) =>{
         projectA = gltf.scene;
-        projectA.position.set(-4, -3, 1);
-        projectA.scale.set(2.5, 2.5, 2.5);
+        projectA.position.set(-10, -5, -2);
+        projectA.scale.set(5, 5, 5);
+        projectA.rotation.y = 0.8;
         scene.add(projectA);
         projects.push(projectA);
         projectA.userData.projectId = "remazu";
@@ -222,6 +267,7 @@ function enterBeatTwo() {
         projectB = gltf.scene;
         projectB.position.set(8, 1, -2);
         projectB.scale.set(12, 12, 12);
+        projectB.rotation.y = -1.5;
         scene.add(projectB);
         projects.push(projectB);
         projectB.userData.projectId = "triadic-patterning";
@@ -231,9 +277,9 @@ function enterBeatTwo() {
 
     loader3.load("assets/models/Sibuxiang_forThreeJSPortfolio.glb", (gltf) =>{
         projectC = gltf.scene;
-        projectC.position.set(8, -2, 1);
-        // projectC.scale.set(2, 2, 2);
-        projectC.scale.set(.1, .1, .1);
+        projectC.position.set(8, -4, 5);
+        projectC.scale.set(.3, .3, .3);
+        projectC.rotation.y = 2.1;
         scene.add(projectC);
         projects.push(projectC);
         projectC.userData.projectId = "sibuxiang";
@@ -243,8 +289,9 @@ function enterBeatTwo() {
 
      loader4.load("assets/models/changE_dildo_ThreeJS.glb", (gltf) =>{
         projectD = gltf.scene;
-        projectD.position.set(-3, 0, -8);
-        projectD.scale.set(2, 2, 2);
+        projectD.position.set(-3, 0, -15);
+        projectD.scale.set(3, 3, 3);
+        projectD.rotation.y = -0.75;
         scene.add(projectD);
         projects.push(projectD);
         projectD.userData.projectId = "dong";
@@ -254,12 +301,12 @@ function enterBeatTwo() {
 
     loader5.load("assets/models/xeroxStack_threeJSPortfolio.glb", (gltf) =>{
         projectE = gltf.scene;
-        projectE.position.set(3, 0, -4);
+        projectE.position.set(6, -3, -12);
         projectE.scale.set(1.4, 1.4, 1.4);
+        projectE.rotation.y = 1.8;
         scene.add(projectE);
         projects.push(projectE);
         projectE.userData.projectId = "xerox";
-        // projectE.material.wireframe = true;
         projectE.visible = false;
         const projectData = projectLibrary[projectE.userData.projectId];
         createSpatialLabel(projectE, projectData);
@@ -294,8 +341,9 @@ function enterBeatTwo() {
 
     loader8.load("assets/models/hk_threeJS.glb", (gltf) =>{
         projectH = gltf.scene;
-        projectH.position.set(-11, -4, -4);
+        projectH.position.set(-20, -8, -8);
         projectH.scale.set(1, 1, 1);
+        projectH.rotation.y = -3;
         scene.add(projectH);
         projects.push(projectH);
         projectH.userData.projectId = "amorous-polymers";
@@ -307,8 +355,9 @@ function enterBeatTwo() {
 
     loader9.load("assets/models/nekoBot.glb", (gltf) =>{
         projectI = gltf.scene;
-        projectI.position.set(11, -4, 7);
-        // projectI.scale.set(0.5, 0.5, 0.5);
+        projectI.position.set(35, -20, 28);
+        projectI.scale.set(2, 2, 2);
+        projectI.rotation.y = -5.9;
         scene.add(projectI);
         projects.push(projectI);
         projectI.userData.projectId = "grand-street";
@@ -544,6 +593,11 @@ function enterBeatTwo() {
             }
         });
 
+        const time = performance.now() * 0.001;
+
+        aboutMe.scale.y = 1+ Math.sin(time) * 0.3;
+        aboutMe.scale.x = 1+ Math.cos(time) * 0.65;
+        aboutMe.scale.z = 1+ Math.cos(time) * 0.25;
     }
 
     function approachProject(project, hitObject) {
@@ -684,10 +738,13 @@ function enterBeatTwo() {
 
     function setAboutMeDetail(newDetail) {
         aboutMe.geometry.dispose();
-        aboutMe.geometry = new THREE.OctahedronGeometry(
-            0.4,
-            newDetail
-        );
+       
+         aboutMe.geometry = new THREE.PolyhedronGeometry(
+        vertices,
+        indices,
+        0.8,
+        newDetail
+    );
     }
 
     function enterAbout(object) {
@@ -734,4 +791,65 @@ function enterBeatTwo() {
             bioElement.appendChild(p);
         })
 
-    }
+    const exhibitionList = document.getElementById("about-exhibition-list");
+    exhibitionList.innerHTML = "";
+
+    exhibitionsLibrary.forEach(exhibition => {
+        const entry = document.createElement("p");
+
+        const year = document.createElement("span");
+        year.textContent = exhibition.year;
+        year.classList.add("exhibition-year");
+
+        const title = document.createElement("span");
+        title.textContent = `${exhibition.title},`;
+        title.classList.add("exhibition-title");
+
+        const venue = document.createElement("span");
+        venue.textContent = exhibition.venue;
+        venue.classList.add("exhibition-venue");
+
+        const location = document.createElement("span");
+        location.textContent = exhibition.location;
+        location.classList.add("exhibition-location");
+
+        const exhibitionInfo = document.createElement("span");
+        exhibitionInfo.classList.add("exhibition-info");
+        exhibitionInfo.append(title, venue);
+
+        entry.append(year, exhibitionInfo, location);
+
+        exhibitionList.appendChild(entry);
+    });
+
+    const talksList = document.getElementById("about-talks-list");
+    talksList.innerHTML = "";
+
+    talksLibrary.forEach(talk => {
+        const entry = document.createElement("p");
+
+        const year = document.createElement("span");
+        year.textContent = talk.year;
+        year.classList.add("talk-year");
+
+        const title = document.createElement("span");
+        title.textContent = `${talk.title},`;
+        title.classList.add("talk-title");
+
+        const venue = document.createElement("span");
+        venue.textContent = talk.venue;
+        venue.classList.add("talk-venue");
+
+        const location = document.createElement("span");
+        location.textContent = talk.location;
+        location.classList.add("talk-location");
+
+        const talkInfo = document.createElement("span");
+        talkInfo.classList.add("talk-info");
+        talkInfo.append(title, venue);
+
+        entry.append(year, talkInfo, location);
+
+        talksList.appendChild(entry);
+    });
+}

@@ -31,17 +31,19 @@ body {
 
 #project-overlay {
     position: absolute;
-    background: rgba(119, 146, 236, 0.5);
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
-    inset: 4em;
+    width: 80vw;
+    max-width: 1400px;
+    margin: auto;
+    background: rgba(119, 146, 236, 0.65);
+    inset: 6em;
     z-index: 10;
     display: none;
     overflow-y: auto;
     overflow-x: hidden; 
     scrollbar-width: none;;
     padding: 2rem;
+    backdrop-filter: blur(6px);
+
 }
 
 #project-overlay.visible {
@@ -54,34 +56,32 @@ body {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 2rem;
-    font-size: 2rem;
-    padding: 2rem;
-    margin-top: 10rem;
+    font-size: 1.2rem;
+    padding: 3rem;
 
 }
 
 .project-body {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 1.6fr;
     gap: 3rem;
     align-items: start;
 }
 
 #about-overlay {
-    font-size: 2rem;
-    margin-top: 2rem;
-    background: rgba(119, 146, 236, 0.5);
     position: absolute;
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
-    inset: 4em;
+    width: 80vw;
+    max-width: 1400px;
+    margin: auto;
+    background: rgba(119, 146, 236, 0.65);
+    inset: 6em;
     z-index: 10;
     display: none;
     overflow-y: auto;
     overflow-x: hidden; 
     scrollbar-width: none;;
     padding: 2rem;
+    backdrop-filter: blur(6px);
 }
 
 #about-overlay.visible {
@@ -118,6 +118,7 @@ body {
     position: static !important;
     top: auto;
     margin-bottom: 4rem;
+    /* font-size: 1.2rem; */
   }
   
   .sidebar-elements {
@@ -131,11 +132,12 @@ body {
     margin-bottom: 2rem !important;
 }
 
-#role, #credits, #project-tools {
-    border-top: solid;
+#role, #credits {
+    /* border-top: solid;
     border-width: 1px;
-    border-color:  rgb(0, 0, 0);
+    border-color:  rgb(0, 0, 0); */
     padding-top: 4rem;
+    padding-top: 1rem;
 }
 
  .project-media img {
@@ -180,8 +182,20 @@ body {
     min-width: 0;
 }
 
+#project-vimeo:empty {
+    display: none;
+}
+
+.project-media video {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 2rem;
+    border: 1px solid black;
+}
+
 .media-caption {
-    font-size: 1.4rem;
+    font-size: 1rem;
     margin-left: auto !important;
     color: rgba(13, 8, 31, 0.8);
     margin-bottom: 2rem;
@@ -192,20 +206,29 @@ body {
     position: sticky;
     top: 2rem;
     align-self: start;
-    font-size: 2rem;
+    font-size: 1.2rem;
+}
+
+.sidebar-elements:empty {
+    display: none;
 }
 
 .sidebar-elements {
-    /* height: 20rem; */
     padding: 2rem;
 }
 
-.project-header {
-    margin-bottom: 10rem;
-}
+
 
 .sidebar-elements p {
-    margin-bottom: 6rem;
+    /* margin-bottom: .5rem; */
+    padding: 0;
+}
+
+.sidebar-elements h4 {
+    margin-bottom: 1rem;
+    font-style: normal;
+    font-weight: normal;
+    border-bottom: 1px solid black;
 }
 
 nav {
@@ -251,7 +274,6 @@ nav {
 }
 
 .menu-toggle {
-    font-size: 4rem;
     background: transparent;
     cursor: pointer;
     position: fixed;
@@ -283,4 +305,49 @@ nav {
 
 .spatial-label-title {
     font-style: italic;
+}
+
+
+#about-exhibition-list p,
+#about-talks-list p {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+}
+
+.exhibition-year,
+.talk-year {
+    margin-right: 3rem;
+}
+
+.exhibition-title,
+.talk-title {
+    font-style: italic;
+    white-space: nowrap;
+}
+
+.exhibition-venue,
+.talk-venue {
+    white-space: nowrap;
+    margin-left: 0.25rem;
+}
+
+.exhibition-location,
+.talk-location {
+    margin-left: auto !important;
+    text-align: right !important;
+}
+
+.exhibition-info,
+.talk-info {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    min-width: 0;
+}
+
+#selected-exhibitions,
+#selected-talks,
+#contact-section {
+    margin-top: 3rem;
 }
