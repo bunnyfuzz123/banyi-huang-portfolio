@@ -146,9 +146,6 @@ body {
     height: auto;
     display: block;
     margin-bottom: 2rem;
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
 }
 
 .video-wrapper {
@@ -191,7 +188,6 @@ body {
     height: auto;
     display: block;
     margin-bottom: 2rem;
-    border: 1px solid black;
 }
 
 .media-caption {

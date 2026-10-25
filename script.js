@@ -94,15 +94,15 @@ let exhibitionsLibrary = {};
 let talksLibrary = {};
 
 const vertices = [
-   1, 1, 1,
-   -1, -1, 1,
-   -1, 1, -1,
-   1, -1, -1
+   30,   8,  15,
+   -14,  -2,   2,
+    -2,   4, -20,
+    18, -10,  -3
 ];  
 
 const indices = [
-    2, 1, 0,
-    0,3, 2,
+   2, 1, 0,
+    0, 3, 2,
     1, 3, 0,
     2, 3, 1
 ];
@@ -193,18 +193,12 @@ function enterBeatTwo() {
     const renderPass = new RenderPass(scene, camera);
     composer.addPass(renderPass);
 
-    const bokehPass = new BokehPass (scene, camera, {
-        focus: 1,
-        aperture: 0.0004,
-        maxblur: 0.002
-    })
 
     const resolution = new THREE.Vector2(window.innerWidth, window.innerHeight);
     const bloomPass = new UnrealBloomPass(resolution, 0.2, 0.25, 1);
 
     composer.addPass(bloomPass);
 
-    // composer.addPass(bokehPass);
 
     //animating aboutMe icon
     let detail = 0;
@@ -213,7 +207,7 @@ function enterBeatTwo() {
     setInterval(() => {
         detail += direction; 
 
-        if (detail === 6) {
+        if (detail === 8) {
             direction = -1;
         }
 
@@ -221,7 +215,7 @@ function enterBeatTwo() {
             direction = 1;
         }
         setAboutMeDetail(detail);
-    }, 250);
+    }, 350);
 
     const material2 = new THREE.MeshStandardMaterial({
         color: 0xFFFDD0,
@@ -243,7 +237,7 @@ function enterBeatTwo() {
         material2
     );
     
-    aboutMe.position.set(0, 1, -2);
+    aboutMe.position.set(5, -8, -10);
     scene.add(aboutMe);
     projects.push(aboutMe);
     aboutMe.userData.aboutId = "about";
@@ -265,8 +259,8 @@ function enterBeatTwo() {
 
     loader2.load("assets/models/TriadicMerge_forThreeJSPortfolio_centered_optimized.glb", (gltf) =>{
         projectB = gltf.scene;
-        projectB.position.set(8, 1, -2);
-        projectB.scale.set(12, 12, 12);
+        projectB.position.set(8, 10, -2);
+        projectB.scale.set(20, 20, 20);
         projectB.rotation.y = -1.5;
         scene.add(projectB);
         projects.push(projectB);
@@ -315,8 +309,8 @@ function enterBeatTwo() {
 
       loader6.load("assets/models/jojoduck_threeJS.glb", (gltf) =>{
         projectF = gltf.scene;
-        projectF.position.set(-20, 6, -10);
-        // projectF.scale.set(0.7, 0.7, 0.7);
+        projectF.position.set(30,20, -50);
+        projectF.scale.set(2, 2, 2);
         scene.add(projectF);
         projects.push(projectF);
         // projectF.material.wireframe = true;
@@ -328,7 +322,7 @@ function enterBeatTwo() {
 
      loader7.load("assets/models/constellation_threeJS.glb", (gltf) =>{ 
         projectG = gltf.scene;
-        projectG.position.set(-25, 6, -6);
+        projectG.position.set(-45, 12, -6);
         projectG.scale.set(10, 10, 10);
         scene.add(projectG);
         projects.push(projectG);
@@ -341,7 +335,7 @@ function enterBeatTwo() {
 
     loader8.load("assets/models/hk_threeJS.glb", (gltf) =>{
         projectH = gltf.scene;
-        projectH.position.set(-20, -8, -8);
+        projectH.position.set(-20, -16, -8);
         projectH.scale.set(1, 1, 1);
         projectH.rotation.y = -3;
         scene.add(projectH);
@@ -515,12 +509,10 @@ function enterBeatTwo() {
         composer.render();
 
         if (projectA) {
-            // projectA.rotation.x += 0.0002;
             projectA.rotation.y += 0.0001;
         }
      
         if (projectB) {
-            //  projectB.position.x += 0.0001;
             projectB.rotation.y += 0.003;
         }
 
@@ -537,11 +529,17 @@ function enterBeatTwo() {
             projectE.rotation.z += 0.004;
             projectE.rotation.x += 0.004;
 
+      
+        }
+
+          if (projectF) {
+            // projectG.rotation.x += 0.001;
+            projectG.rotation.y += 0.0002;
         }
 
         if (projectG) {
-            projectG.rotation.x += 0.001;
-            projectG.rotation.z += 0.001;
+            // projectG.rotation.x += 0.001;
+            projectG.rotation.z += 0.0001;
         }
 
          if (projectH) {
@@ -593,11 +591,11 @@ function enterBeatTwo() {
             }
         });
 
-        const time = performance.now() * 0.001;
+        const time = performance.now() * 0.0006;
 
-        aboutMe.scale.y = 1+ Math.sin(time) * 0.3;
-        aboutMe.scale.x = 1+ Math.cos(time) * 0.65;
-        aboutMe.scale.z = 1+ Math.cos(time) * 0.25;
+        aboutMe.scale.y = 0.5 + Math.sin(time) * 0.3;
+        aboutMe.scale.x = 0.5 + Math.cos(time) * 0.25;
+        aboutMe.scale.z = 0.5 + Math.cos(time) * 0.15;
     }
 
     function approachProject(project, hitObject) {
