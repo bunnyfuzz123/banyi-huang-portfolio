@@ -181,7 +181,7 @@ function enterBeatTwo() {
 
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.toneMapping = ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 0.8; 
+    renderer.toneMappingExposure = 0.1; 
 
     document
         .getElementById("beat-two")
@@ -195,7 +195,7 @@ function enterBeatTwo() {
 
 
     const resolution = new THREE.Vector2(window.innerWidth, window.innerHeight);
-    const bloomPass = new UnrealBloomPass(resolution, 0.2, 0.25, 1);
+    const bloomPass = new UnrealBloomPass(resolution, 0.2, 0.45, 1);
 
     composer.addPass(bloomPass);
 
@@ -504,7 +504,9 @@ function enterBeatTwo() {
      function animateBeatTwo() {
         requestAnimationFrame(animateBeatTwo);
 
-    
+        const time1 = performance.now() * 0.001;
+        renderer.toneMappingExposure = 
+            0.55 + Math.sin(time1* 0.05) * 0.45;
 
         composer.render();
 
