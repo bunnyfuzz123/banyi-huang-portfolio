@@ -506,7 +506,7 @@ function enterBeatTwo() {
 
         const time1 = performance.now() * 0.001;
         renderer.toneMappingExposure = 
-            0.55 + Math.sin(time1* 0.05) * 0.45;
+            0.55 + Math.sin(time1* 0.1) * 0.45;
 
         composer.render();
 
