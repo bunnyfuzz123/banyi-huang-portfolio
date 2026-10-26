@@ -146,6 +146,11 @@ body {
     .media-caption {
         font-size: 0.8rem !important;
     }
+    
+    .menu-toggle img {
+        width: 6rem !important;
+        height: 6rem !important;
+    }
 }
 
 #project-overlay {
