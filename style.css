@@ -4,10 +4,13 @@
     box-sizing: border-box;
 }
 
-body {
+html, body {
     background: white;
-    /* color: greenyellow; */
     font-family: sans-serif;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    overscroll-behavior: none;
 }
 
 #beat-one {
@@ -27,6 +30,8 @@ body {
     display: none;
     width: 100vw;
     height: 100vh;
+    overscroll-behavior: none;
+    touch-action: none;
 }
 
 #project-overlay {
@@ -129,7 +134,7 @@ body {
 
 
 .project-media img {
-    margin-bottom: 2rem !important;
+    margin-bottom: 2rem;
 }
 
 #role, #credits {
@@ -346,4 +351,153 @@ nav {
 #selected-talks,
 #contact-section {
     margin-top: 3rem;
+}
+
+
+
+@media (max-width: 480px) {
+
+     .spatial-label {
+        font-size: 0.8rem !important;
+        padding: 0.5rem !important;
+
+        width: auto !important;
+        max-width: 50vw;
+        white-space: normal;
+    }
+
+    #project-overlay {
+        position: fixed !important;
+        background: rgba(119, 146, 236, 0.65) !important;
+        top: 50% !important;
+        left: 50% !important;
+        right: auto !important;
+        bottom: auto !important;
+
+        transform: translate(-50%, -50%);
+
+        width: calc(100vw - 5rem) !important;
+        height: calc(100vh - 5rem) !important;
+
+        padding: 1rem !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+
+        box-sizing: border-box;
+        z-index: 200;
+        font-size: 0.8rem !important;
+
+    }
+
+       .project-header {
+        padding: 1rem !important;
+        font-size: 1rem !important;
+
+    }
+
+    .project-media {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    }
+
+    .project-media img,
+    .project-media video,
+    .project-media iframe {
+        width: 100% !important;
+        height: auto;
+        display: block;
+        margin-bottom: 1rem !important;
+    }
+
+    #project-vimeo {
+    grid-column: 1 !important;
+    width: 100% !important;
+    margin-bottom: 6rem !important;
+    }
+
+    .sidebar-elements {
+    padding: 1rem !important;
+    font-size: 1rem !important;
+    }
+
+    .media-caption {
+        font-size: 0.8rem !important;
+    }
+
+     #about-overlay {
+        position: fixed !important;
+
+        top: 50% !important;
+        left: 50% !important;
+        right: auto !important;
+        bottom: auto !important;
+
+        transform: translate(-50%, -50%);
+
+        width: calc(100vw - 5rem) !important;
+        height: calc(100vh - 5rem) !important;
+
+        padding: 1rem !important;
+        margin-bottom: 3rem !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+
+        box-sizing: border-box;
+        z-index: 200;
+        font-size: 0.8rem !important;
+    }
+
+    
+   .exhibition-info,
+    .talk-info {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+
+    .exhibition-title,
+    .talk-title,
+    .exhibition-venue,
+    .talk-venue {
+        white-space: normal !important;
+    }
+
+    .exhibition-year,
+    .talk-year {
+        margin-right: 1rem !important;
+    }
+
+    .menu-toggle img {
+    width: 6rem;
+    height: 6rem;
+}
+}
+
+
+#spatial-instructions {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    z-index: 9999;
+    background: rgba(119, 146, 236, 0.65);
+
+    padding: 1rem 1.5rem;
+
+    font-size: 1rem;
+    line-height: 1.5;
+
+    backdrop-filter: blur(6px);
+
+    transition: opacity 0.5s ease;
+}
+
+#spatial-instructions p {
+    margin: 0;
+}
+
+#spatial-instructions.hidden {
+    opacity: 0;
+    pointer-events: none;
 }

@@ -53,10 +53,20 @@ const loader9 = new GLTFLoader(loadingManager);
 let assetsLoaded = false;
 let scalingFinished = false;
 
+const instructions = document.getElementById("spatial-instructions");
+
+
 loadingManager.onLoad = function () {
     assetsLoaded = true;
-    // scaleValue = 1;
-    // // scaleBeatOne();
+    instructions.classList.add("hidden");   
+}
+
+if (window.matchMedia("(max-width: 480px)").matches) {
+    document.getElementById("nav-wander").textContent = "Swipe to travel";
+    document.getElementById("nav-approach").textContent = "Tap to approach";
+    document.getElementById("nav-enter").textContent = "Tap again to enter";
+    document.getElementById("nav-exit").textContent = "Tap outside to exit";
+
 }
 
 let scrollAmount = 0;
@@ -396,6 +406,23 @@ function enterBeatTwo() {
             handleBeatTwoScroll();
         } 
     })
+
+    let touchStartY = 0;
+
+    window.addEventListener("touchstart", function(event) {
+        touchStartY = event.touches[0].clientY;
+    });
+
+    window.addEventListener("touchend", function(event) {
+        if (!beatTwoEntered || insideProject) return;
+
+        const touchEndY = event.changedTouches[0].clientY;
+        const swipeDistance = touchStartY - touchEndY;
+
+        if (Math.abs(swipeDistance) > 50) {
+            handleBeatTwoScroll();
+        }
+    });
     
     animateBeatTwo();
 

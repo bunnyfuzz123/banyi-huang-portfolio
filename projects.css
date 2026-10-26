@@ -43,9 +43,108 @@ body {
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 480px) {
+   
     #project-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
+        width: 100% !important;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .project-card {
+        order: 1;
+    }
+
+    #grid-container {
+        order: 2;
+        width: 100%;
+    }
+
+    #about-overlay {
+        position: static !important;
+        width: 100% !important;
+        margin-top: 3rem;
+        padding: 0 !important;
+        margin-top: 2rem !important;
+    }
+
+   .exhibition-info,
+    .talk-info {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+
+    .exhibition-title,
+    .talk-title,
+    .exhibition-venue,
+    .talk-venue {
+        white-space: normal !important;
+    }
+
+    .exhibition-year,
+    .talk-year {
+        margin-right: 1rem !important;
+    }
+
+     #project-overlay {
+        position: fixed !important;
+        background: rgba(119, 146, 236, 0.65) !important;
+
+        top: 50% !important;
+        left: 50% !important;
+        right: auto !important;
+        bottom: auto !important;
+
+        transform: translate(-50%, -50%);
+
+        width: calc(100vw - 5rem) !important;
+        height: calc(100vh - 5rem) !important;
+
+        padding: 1rem !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+
+        box-sizing: border-box;
+        z-index: 200;
+        font-size: 0.8rem !important;
+
+    }
+
+    .project-header {
+        padding: 1rem !important;
+        font-size: 1rem !important;
+
+    }
+
+    .project-media {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    }
+
+    .project-media img,
+    .project-media video,
+    .project-media iframe {
+        width: 100% !important;
+        height: auto;
+        display: block;
+        margin-bottom: 1rem !important;
+    }
+
+    #project-vimeo {
+    grid-column: 1 !important;
+    width: 100% !important;
+    margin-bottom: 6rem !important;
+    }
+
+    .sidebar-elements {
+    padding: 1rem !important;
+    font-size: 1rem !important;
+}
+
+    .media-caption {
+        font-size: 0.8rem !important;
     }
 }
 
@@ -110,8 +209,6 @@ nav {
     width: 40vw;
     height: auto;
     overflow: visible;
-    /* top: 2rem; */
-    /* right: 2rem; */
     bottom: auto !important;
     left: auto !important;
     top: auto !important;
